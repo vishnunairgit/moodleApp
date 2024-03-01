@@ -3,32 +3,25 @@ import './account.css'
 import AxiosInstance from '../../config/AxiosInstance'
 
 
-
-
 function Account() {
 
-  
+const [Singleuser, setSingleuser] = useState([ ])
 
-  // const [Singleuser, setSingleuser] = useState([ ])
+  useEffect(()=>{
+    GetUserData()
+  },[])
 
-  // useEffect(()=>{
-  //   GetUserData()
-  // },[])
-
-
-
-
-
-  // const GetUserData = async () => {
-  //   try {
-  //     const response= await AxiosInstance.get('/users/GetUser',   )
-  //     debugger
-  //     setSingleuser(response.data);
-  //     console.log(setSingleuser,'------------------setSingleuser--------------');
-  //   } catch (error) {
-  //     console.error('Error fetching data:', error)
-  //   }
-  // };
+const GetUserData = async (userId) => {
+    try {
+      const response= await AxiosInstance.get('/users/GetUser', {userId:userId}  )
+      debugger
+      setSingleuser(response.data);
+      console.log(setSingleuser,'------------------setSingleuser--------------');
+    } catch (error) {
+      console.log(error,'-----------error-----------');
+      console.error('Error fetching data:', error)
+    }
+};
 
 
   return (
@@ -54,6 +47,7 @@ function Account() {
                   id="CompanyName"
                   name="CompanyName"
                   placeholder="Company Name.."
+                  value={Singleuser?.CompanyName}
                   // onChange={(e) => {
                   //   setDisplayID(e.target.value);
                   // }}
@@ -75,10 +69,47 @@ function Account() {
                   id="registration-Number"
                   name="registrationNumber"
                   placeholder="RegistrationNumber.."
+                  value={Singleuser?.registrationNumber}
                   // onChange={(e) => {
                   //   setassetType(e.target.value);
                   // }}
                   required
+                />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-25">
+                <label htmlFor="email">EMAIL</label>
+              </div>
+              <div className="col-75">
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  placeholder="email.."
+                  value={Singleuser?.email}
+
+                  // onChange={(e) => {
+                  //   setScientificName(e.target.value);
+                  // }}
+                />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-25">
+                <label htmlFor="email">PHONE NUMBER</label>
+              </div>
+              <div className="col-75">
+                <input
+                  type="number"
+                  id="phonenumber"
+                  name="phonenumber"
+                  placeholder="email.."
+                  value={Singleuser?.phonenumber}
+
+                  // onChange={(e) => {
+                  //   setScientificName(e.target.value);
+                  // }}
                 />
               </div>
             </div>
@@ -119,7 +150,7 @@ function Account() {
               </div>
             </div>
 
-            <div className="row">
+            {/* <div className="row">
               <div className="col-25">
                 <label htmlFor="email">EMAIL</label>
               </div>
@@ -129,12 +160,14 @@ function Account() {
                   id="email"
                   name="email"
                   placeholder="email.."
+                  value={Singleuser?.email}
+
                   // onChange={(e) => {
                   //   setScientificName(e.target.value);
                   // }}
                 />
               </div>
-            </div>
+            </div> */}
 
             <div className="row">
               <div className="col-25">

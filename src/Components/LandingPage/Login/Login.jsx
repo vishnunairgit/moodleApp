@@ -1,112 +1,148 @@
 import React, { useState } from 'react'
 import "./login.css"
 import { useNavigate } from 'react-router-dom'
-import { loginUser } from '../../../API/LoginAPI'
+// import { loginUser } from '../../../API/LoginAPI'
+import AxiosInstance from '../../../config/AxiosInstance'
 
 function Login({ setloginsignup }) {
 
-const [LoginUserData, setLoginUserData] = useState({
-    email:'',
+  const [LoginUserData, setLoginUserData] = useState({
+    email: '',
     password: '',
 
-})
+  })
 
-const  navigate =useNavigate()
+  const navigate = useNavigate()
 
-const handlelogin = ()=>{
-  setloginsignup('Signup')
-}
+  const handlelogin = () => {
+    setloginsignup('Signup')
+  }
 
-const loginData =(e)=>{
-  setLoginUserData({...LoginUserData, [e.target.name]: e.target.value }) 
-}
-
-
-const handleUserLogin = async () => {
-
-const userData = await  loginUser(LoginUserData)
-setLoginUserData({ ...LoginUserData, error:null});
-
-  if (userData && userData.token) {
-    debugger
-    localStorage.setItem("token", userData.token )
-    const parsedToken = parseJwt(userData.token)
-
-    console.log(userData.token);
-    console.log(parsedToken, '----parsedToken-----');
-
-    localStorage.setItem("user", JSON.stringify(parsedToken));
-
-    alert('Login Successful')
-    navigate('/home')
+  // const loginData = (e) => {
+  //   setLoginUserData({ ...LoginUserData, [e.target.name]: e.target.value })
+  // }
 
 
+  // const handleUserLogin = async () => {
 
-        // Clear password from state
-        setLoginUserData({ ...LoginUserData, password: '' });
+  // const userData = await  loginUser(LoginUserData)
+  // setLoginUserData({ ...LoginUserData, error:null});
 
-      }else if (userData && userData.error) {
-        alert(userData.error)
+  //   if (userData && userData.token) {
+  //     debugger
+  //     localStorage.setItem("token", userData.token )
+  //     const parsedToken = parseJwt(userData.token)
+
+  //     console.log(userData.token);
+  //     console.log(parsedToken, '----parsedToken-----');
+
+  //     localStorage.setItem("user", JSON.stringify(parsedToken));
+
+  //     alert('Login Successful')
+  //     navigate('/home')
+
+
+
+  //         // Clear password from state
+  //         setLoginUserData({ ...LoginUserData, password: '' });
+
+  //       }else if (userData && userData.error) {
+  //         alert(userData.error)
+  //       }
+
+  // }
+  const handleUserLogin = () => {
+    try {
+      if (LoginUserData.email && LoginUserData.password) {
+
+        AxiosInstance.post('/auth/Login', LoginUserData).then((res) => {
+
+          console.log(res,'---------res---------------');
+
+          if (res.data.message === "Login successful" && res.data.token) {
+            localStorage.setItem('token', res.data.token)
+            const parsedToken = parseJwt(res.data.token)
+
+            console.log(parsedToken, '----lllll-----');
+
+            localStorage.setItem('user', JSON.stringify(parsedToken))
+            console.log(parsedToken);
+            navigate('/home')
+            alert('Login successful')
+          }
+          if (res.data.message === "Invalid user credentials") {
+            alert('Invalid user credentials')
+          }
+          if (res.data.message === 'Internal server error') {
+            alert('something went wrong')
+          }
+          // debugger
+        })
       }
-  
-}
-  
+    } catch (error) {
+      alert('user credentials not filled')
+      console.log(error);
+    }
+
+  }
 
 
-function parseJwt(token) {
-  var base64Url = token.split(".")[1];
-  var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-  var jsonPayload = decodeURIComponent(
-    window
-      .atob(base64)
-      .split("")
-      .map(function (c) {
-        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
-      })
-      .join("")
-  );
-  return JSON.parse(jsonPayload);
-}
+  function parseJwt(token) {
+    var base64Url = token.split(".")[1];
+    var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    var jsonPayload = decodeURIComponent(
+      window
+        .atob(base64)
+        .split("")
+        .map(function (c) {
+          return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+        })
+        .join("")
+    );
+    return JSON.parse(jsonPayload);
+  }
 
-// const handleUserLogin = ()=>{
-//   navigate('/home')
-// }
+
 
   return (
     <div>
 
-    <div className='loginContainers'>
+      <div className='loginContainers'>
 
-{/* <div className='loginContainers' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}> */}
-      <div className='login' style={{ border: '1px solid #ccc' }}>
-        <div className="container">
-          <h1>Login</h1>
+        {/* <div className='loginContainers' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}> */}
+        <div className='login' style={{ border: '1px solid #ccc' }}>
+          <div className="container">
+            <h1>Login</h1>
 
-          <label htmlFor="email"><b>Email</b></label>
-          <input type="text"
-            placeholder="Enter Email"
-            name="email"
-            value={LoginUserData.email}
-            required
-            onChange={loginData}
+            <label htmlFor="email"><b>Email</b></label>
+            <input type="text"
+              placeholder="Enter Email"
+              name="email"
+              value={LoginUserData.email}
+              required
+              // onChange={loginData}
+              onChange={(e)=> {setLoginUserData({ ...LoginUserData, [e.target.name]: e.target.value })}
+            }
+
             />
 
 
-          <label htmlFor="psw"><b>Password</b></label>
-
-          <div className='password-container' > 
-          
-              <input 
-                  // type={showPassword ? 'text' : 'password'}
+            <label htmlFor="psw"><b>Password</b></label>
+            <div className='password-container' >
+              <input
+                // type={showPassword ? 'text' : 'password'}
                 // type={ showPwd ? "text" : "password"}
                 type='password'
                 placeholder="Enter Password"
                 name="password"
-                required
                 value={LoginUserData.password}
-                onChange={loginData}
-              />
-              
+                required
+                onChange={(e)=> {setLoginUserData({ ...LoginUserData, [e.target.name]: e.target.value })}}
+
+
+                // onChange={loginData}
+                />
+
               {/* {shouldShowImg &&
                 <img 
                 src={showPwd ? pwd.hidepwd :pwd.showpwd } 
@@ -115,47 +151,47 @@ function parseJwt(token) {
                 onClick={()=> setShowPwd(!showPwd)}
                 />} */}
 
-                  {/* <button
+              {/* <button
                     type="button"
                     className="btn btn-outline-secondary"
                     onClick={() => setShowPassword(!showPassword)}>
                     {showPassword ? "Hide" : "Show"}
                   </button> */}
 
-          </div>
-          
-          {/* </div> */}
-
-       
-
-
-
-          <div className="clearfix">
-            {/* <button type="button" className="cancelbtn">Cancel</button> */}
-            <button type="submit"
-              className="button_01"
-              onClick={handleUserLogin}
-            >Log In</button>
-          </div>
-
-          <div>
-            <div>
-            <span>Don't have an account? <span onClick={() => handlelogin()} style={{ color: 'blue', fontWeight: '600' }}>Sign up</span> </span>
-
-              
             </div>
 
+            {/* </div> */}
+
+
+
+
+
+            <div className="clearfix">
+              {/* <button type="button" className="cancelbtn">Cancel</button> */}
+              <button type="submit"
+                className="button_01"
+                onClick={handleUserLogin}
+              >Log In</button>
+            </div>
+
+            <div>
+              <div>
+                <span>Don't have an account? <span onClick={() => handlelogin()} style={{ color: 'blue', fontWeight: '600' }}>Sign up</span> </span>
+
+
+              </div>
+
+            </div>
           </div>
         </div>
+
+
       </div>
 
 
     </div>
 
 
-    </div>
-
-    
 
 
   )

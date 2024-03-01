@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import "./signup.css"
-import { signUpUser } from '../../../API/SignUp'
+// import { signUpUser } from '../../../API/SignUp'
+import AxiosInstance from '../../../config/AxiosInstance'
 
 function Signup({ setloginsignup }) {
 
-// ----------------signUp data--------------
+    // ----------------signUp data--------------
 
     const [signupData, setsignupData] = useState({
         CompanyName: '',
@@ -16,56 +17,31 @@ function Signup({ setloginsignup }) {
     })
 
 
-const handleSignUp = ()=>{
-    setloginsignup("Login")
-}
-
-const userData = (e)=>{
-    setsignupData({...signupData, [e.target.name]: e.target.value })
-}
-
-const handieUserSignUp = async ()=>{
-    try {
-        const response = await signUpUser(signupData)
-        .then((res)=>{
-            console.log(res);
-            if (res.data.message=== 'Sign up success') {
-                setloginsignup("Login")
-                alert('signUp successful')   
-            }
-            if (res.data.message==='email is already exist') {
-                alert('email is already exist')
-            }
-        })
-       
-        console.log(response,'Sign up success');
-
-    } catch (error) {
-        console.error('Signup error:', error);
-        alert('Signup error')
-
+    const handleSignUp = () => {
+        setloginsignup("Login")
     }
-}
 
-// const handieUserSignUp = async () => {
-//     try {
-//         const response = await signUpUser(signupData);
-//         console.log(response);
+    // const userData = (e)=>{
+    //     setsignupData({...signupData, [e.target.name]: e.target.value })
+    // }
 
-//         if (response.data.message === 'signUp successful') {
-//             setloginsignup("Login");
-//             alert('Sign up successful');
-//         } if (response.data.message === 'email is already exist') {
-//             alert('Email is already exist');
-//         }
-
-//     } catch (error) {
-//         console.error('Signup error:', error);
-//         alert('Signup error');
-//     }
-// };
-
-
+    const handieUserSignUp = () => {
+        try {
+            AxiosInstance.post('auth/signUp', signupData)
+                .then((res) => {
+                    console.log(res);
+                    if (res.data.message === 'signUp successful') {
+                        alert('signUp successful')
+                        setloginsignup('Login')
+                    }
+                    if (res.data.message === 'email is already exist') {
+                        alert('email is already exist')
+                    }
+                })
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return (
 
@@ -86,30 +62,8 @@ const handieUserSignUp = async ()=>{
                         <p>Please fill in this form to create an account.</p>
                         {/* <form onSubmit={handleSignUp}> */}
 
-                        {/* <div className="namefullname">
 
-                            <div className="input-group">
-                                <label htmlFor="firstName">
-                                    <b>First Name</b>
-                                </label>{" "}
-                                <br />
-                                <input
-                                    type="text"
-                                    placeholder="First Name"
-                                    name="firstName"
-                                    value={signupData.firstName}
-                                    required
-                                    onChange={userData}
-                                // pattern="[A-Za-z]+"
-                                // minLength="4"
-                                // title="Please enter only alphabetic characters with"
-
-                                />
-                            </div>
-                           
-
-                        </div> */}
-                          <label htmlFor="CompanyName">
+                        <label htmlFor="CompanyName">
                             <b>Company Name</b>
                         </label>
                         <input
@@ -118,11 +72,13 @@ const handieUserSignUp = async ()=>{
                             // pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                             // title="Please enter a valid email address"
                             name="CompanyName"
-                              value={signupData.CompanyName}
-                              onChange={userData}
+                            value={signupData.CompanyName}
+                            //   onChange={userData}
+                            onChange={(e) => { setsignupData({ ...signupData, CompanyName: e.target.value }) }}
+
                             required
                         />
-                          <label htmlFor="registrationNumber">
+                        <label htmlFor="registrationNumber">
                             <b>registration number </b>
                         </label>
                         <input
@@ -131,20 +87,24 @@ const handieUserSignUp = async ()=>{
                             // pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                             // title="Please enter a valid email address"
                             name="registrationNumber"
-                              value={signupData.registrationNumber}
-                              onChange={userData}
+                            value={signupData.registrationNumber}
+                            //   onChange={userData}
+                            onChange={(e) => { setsignupData({ ...signupData, registrationNumber: e.target.value }) }}
+
                             required
                         />
 
-                            <label htmlFor="phonenumber">
+                        <label htmlFor="phonenumber">
                             <b>phone number </b>
-                             </label>
+                        </label>
                         <input
                             type="number"
                             placeholder="Enter phone number"
                             name="phonenumber"
                             value={signupData.phonenumber}
-                            onChange={userData}
+                            // onChange={userData}
+                            onChange={(e) => { setsignupData({ ...signupData, phonenumber: e.target.value }) }}
+
                             required
                         />
 
@@ -157,8 +117,9 @@ const handieUserSignUp = async ()=>{
                             // pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                             // title="Please enter a valid email address"
                             name="email"
-                              value={signupData.email}
-                              onChange={userData}
+                            value={signupData.email}
+                            //   onChange={userData}
+                            onChange={(e) => { setsignupData({ ...signupData, email: e.target.value }) }}
                             required
                         />
 
@@ -169,13 +130,9 @@ const handieUserSignUp = async ()=>{
                             type="password"
                             name="password"
                             placeholder="Enter password"
-                            onChange={userData}
-
-                            // minLength="8"
-                            // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                            // title="Password must contain at least 8 characters, including one uppercase letter, one lowercase letter, and one number."
-                              value={signupData.password}
-                            //   onChange={(e)=>{setsignUpData({...signUpData, password:e.target.value})}}
+                            value={signupData.password}
+                            // onChange={userData}
+                            onChange={(e) => { setsignupData({ ...signupData, password: e.target.value }) }}
                             required
                         />
 
@@ -187,9 +144,8 @@ const handieUserSignUp = async ()=>{
                             name="confirmPassword"
                             placeholder="confirm Password"
                             value={signupData.confirmPassword}
-                            onChange={userData}
-
-                            //   onChange={(e)=>{setsignUpData({...signUpData, confirmPassword:e.target.value})}}
+                            // onChange={userData}
+                            onChange={(e) => { setsignupData({ ...signupData, confirmPassword: e.target.value }) }}
                             required
                         />
 
@@ -213,7 +169,7 @@ const handieUserSignUp = async ()=>{
                         <div className="clearfix">
                             {/* <button type="button" className="cancelbtn">Cancel</button> */}
                             <button type="button" className="signupbtn"
-                              onClick={handieUserSignUp}
+                                onClick={handieUserSignUp}
                             >
                                 Sign Up
                             </button>
@@ -226,7 +182,7 @@ const handieUserSignUp = async ()=>{
                                     <span
                                         // both onClik are correct. once we clik the function that time only we need call the function 
                                         // onClick={handilSignUp}
-                                          onClick={() => handleSignUp()}
+                                        onClick={() => handleSignUp()}
                                         style={{ color: "blue", fontWeight: "600" }}>
                                         Log in
                                     </span>
@@ -242,5 +198,5 @@ const handieUserSignUp = async ()=>{
 
     )
 }
- 
+
 export default Signup

@@ -1,0 +1,39 @@
+.mainImg img
+{
+    height: 390px;
+    width: 100%;
+}
+.company-Details{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0 20px 0;
+    border-bottom: 1px solid black;
+    /* border: 1px solid black; */
+
+}
+.company-Details-LS{
+    display: flex;
+}
+.companyLogo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.companyLogo img {
+    height: 50px;
+    
+}
+.companyAdress{
+    text-align: left;
+}
+.companyAdress Button{
+    margin-right: 10px;
+    min-width: 150px;
+    /* gap: 5px; */
+}
+.company-Details-RS button
+{
+    margin-bottom: 10px;
+    min-width: 150px;
+
+}

@@ -1,0 +1,37 @@
+.landingNav{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(188, 188, 236);
+    align-items: center;
+    padding: 10px;
+    /* font-size: 18px; */
+}
+.landingLogo{
+    display: flex;
+    align-items: center;
+}
+
+.landingLogo img {
+    width: 35px;
+    border-radius: 50%;
+}
+.company_name{
+    font-weight: 700;
+}
+.landingLogin{
+    margin-right: 15px;
+    /* padding: 10px; */
+
+}
+
+/* .button_01 button{
+    width: 90px;
+    height: 29px;
+    background-color: rgb(72, 24, 245);
+    border-radius: 8px;
+    font-size: 18px;
+}
+.button_01 button:hover
+{
+    background-color: rgb(75, 75, 199);
+} */

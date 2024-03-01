@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+
+.button_01 {
+  background-color: #04AA6D;
+  color: white;
+  /* padding: 14px 20px; */
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  border-radius: 8px;
+}
+
+.button_02 {
+  background-color: #5451eb;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  border-radius: 8px;
+}

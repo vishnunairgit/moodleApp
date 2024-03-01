@@ -1,4 +1,3 @@
-import axios from "axios";
 import AxiosInstance from "../config/AxiosInstance"
 import { useEffect, useState } from "react";
 
@@ -17,37 +16,37 @@ export const signUpUser = async (userData) => {
 
 // -----------------------------------------------------------------------
   
-// const UserAPI = {
+const UserAPI = {
 
-//   useFetchUser: () => {
+  useFetchUser: () => {
 
-//     const [singleUser, setsingleUser] = useState([]);
+    const [singleUser, setsingleUser] = useState([]);
 
 
-//     useEffect(() => {
-//       fetchUser();
-//     }, []);
+    useEffect(() => {
+      fetchUser();
+    }, []);
 
-//     const fetchUser = () => {
-//             AxiosInstance.get('admin/GetUser',)
-//         .then((response) => {
-//           debugger;
-//           console.log(response);
-//           setsingleUser(response.data);
-//           console.log(response.data, '----------response.data-----');
-//         })
-//         .catch((err) => {
-//           debugger;
-//           console.error(err);
+    const fetchUser = () => {
+            AxiosInstance.get('admin/GetUser',)
+        .then((response) => {
+          debugger;
+          console.log(response);
+          setsingleUser(response.data);
+          console.log(response.data, '----------response.data-----');
+        })
+        .catch((err) => {
+          debugger;
+          console.error(err);
 
-//           if (err.response.data.message === 'unauthorized user') {
-//             localStorage.clear();
-//             // navigate('/')
-//           }
-//         });
-//     }
+          if (err.response.data.message === 'unauthorized user') {
+            localStorage.clear();
+            // navigate('/')
+          }
+        });
+    }
 
-//     return { singleUser };
-//   },
-// };
-// export default UserAPI;
+    return { singleUser };
+  },
+};
+export default UserAPI;

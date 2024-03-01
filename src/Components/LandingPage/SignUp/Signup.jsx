@@ -24,47 +24,46 @@ const userData = (e)=>{
     setsignupData({...signupData, [e.target.name]: e.target.value })
 }
 
-// const handieUserSignUp = async ()=>{
-//     try {
-//         const response = await signUpUser(signupData)
-//         .then((res)=>{
-//             console.log(res);
-//             if (res.data.message==='signUp successful') {
-//                 setloginsignup("Login")
-//                 alert('signUp successful')   
-//             }
-//             if (res.data.message==='email is already exist') {
-//                 alert('email is already exist')
-
-                
-//             }
-//         })
-       
-//         console.log(response,'signUp successful');
-
-//     } catch (error) {
-//         console.error('Signup error:', error);
-//         alert('Signup error')
-
-//     }
-// }
-const handieUserSignUp = async () => {
+const handieUserSignUp = async ()=>{
     try {
-        const response = await signUpUser(signupData);
-        console.log(response);
-
-        if (response.data.message === 'signUp successful') {
-            setloginsignup("Login");
-            alert('Sign up successful');
-        } if (response.data.message === 'email is already exist') {
-            alert('Email is already exist');
-        }
+        const response = await signUpUser(signupData)
+        .then((res)=>{
+            console.log(res);
+            if (res.data.message=== 'Sign up success') {
+                setloginsignup("Login")
+                alert('signUp successful')   
+            }
+            if (res.data.message==='email is already exist') {
+                alert('email is already exist')
+            }
+        })
+       
+        console.log(response,'Sign up success');
 
     } catch (error) {
         console.error('Signup error:', error);
-        alert('Signup error');
+        alert('Signup error')
+
     }
-};
+}
+
+// const handieUserSignUp = async () => {
+//     try {
+//         const response = await signUpUser(signupData);
+//         console.log(response);
+
+//         if (response.data.message === 'signUp successful') {
+//             setloginsignup("Login");
+//             alert('Sign up successful');
+//         } if (response.data.message === 'email is already exist') {
+//             alert('Email is already exist');
+//         }
+
+//     } catch (error) {
+//         console.error('Signup error:', error);
+//         alert('Signup error');
+//     }
+// };
 
 
 

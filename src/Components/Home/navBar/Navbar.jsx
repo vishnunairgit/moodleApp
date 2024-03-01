@@ -93,7 +93,7 @@ const handleLogout = () =>{
           </div>
         
           <div className='links'>
-            <div>kkkkkkkk</div> 
+          <button className='button_01' type="button" onClick={handleLogout}>LogOut</button>
           </div>
 
        
@@ -123,7 +123,6 @@ const handleLogout = () =>{
             </button>
             <ul className="dropdown-menu ">
               <li><a className="dropdown-item" href="#">User :</a></li>
-              <button className='button_01' type="button" onClick={handleLogout}>LogOut</button>
               
             </ul>
           </div>

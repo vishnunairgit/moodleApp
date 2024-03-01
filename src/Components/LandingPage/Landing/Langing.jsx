@@ -31,7 +31,6 @@ const handleLogin =()=>{
         </div>
 
         <div>
-                modoole
         </div>
 
         <div className=''>

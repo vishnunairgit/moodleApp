@@ -7,26 +7,28 @@ import AxiosInstance from '../../config/AxiosInstance'
 
 function Account() {
 
-  const [Singleuser, setSingleuser] = useState([ ])
+  
 
-  useEffect(()=>{
-    GetUserData()
-  },[])
+  // const [Singleuser, setSingleuser] = useState([ ])
+
+  // useEffect(()=>{
+  //   GetUserData()
+  // },[])
 
 
 
 
 
-  const GetUserData = async () => {
-    try {
-      const response= await AxiosInstance.get('/users/GetUser',   )
-      debugger
-      setSingleuser(response.data);
-      console.log(setSingleuser,'------------------setSingleuser--------------');
-    } catch (error) {
-      console.error('Error fetching data:', error)
-    }
-  };
+  // const GetUserData = async () => {
+  //   try {
+  //     const response= await AxiosInstance.get('/users/GetUser',   )
+  //     debugger
+  //     setSingleuser(response.data);
+  //     console.log(setSingleuser,'------------------setSingleuser--------------');
+  //   } catch (error) {
+  //     console.error('Error fetching data:', error)
+  //   }
+  // };
 
 
   return (

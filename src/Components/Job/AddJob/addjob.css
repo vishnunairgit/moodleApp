@@ -13,81 +13,86 @@
 	}
 }
 @media screen and (max-width: 900px) {
-	.Account .container {
+	.addjob .container {
 		display: flex;
 		flex-direction: column;
 	}
-	.Account .rightSide-container-2 {
+	.addjob .rightSide-container-2 {
 		padding: 10px !important;
 	}
 }
 /* hii */
-.Account {
+.addjob {
 	margin: 20px;
 	padding-bottom: 10px;
 	border-radius: 5px;
 	background-color: #ffffff;
 	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
 		rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+     
 }
-.Account .container {
+.addjob .container {
 	display: flex;
 	margin-bottom: 20px;
-	padding: 20px;
+	/* padding: 20px; */
+    /* padding-left: 25%; */
+    border:1px solid black;
+    box-shadow: 10px 10px 5px rgb(31, 37, 39);
+
 }
-.Account .leftSide-container {
-	width: 65%;
+.addjob .leftSide-container {
+    padding: 20px;
+	width: 100%;
 }
-.Account .leftSide-container .Tree-thumbnail {
+.addjob .leftSide-container .Tree-thumbnail {
 	display: flex;
 }
-.Account .Tree-thumbnail-rightside {
+.addjob .Tree-thumbnail-rightside {
 	padding-top: 5%;
 }
-.Account .leftSide-container .Tree-thumbnail-leftside {
+.addjob .leftSide-container .Tree-thumbnail-leftside {
 	box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
 		rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 	border-radius: 5px;
 	margin: 0 20px 20px 0;
 }
-.Account label {
+.addjob label {
 	width: 100%;
 	padding: 10px 10px 10px 0px;
 	display: inline-block;
     text-align: left;
 }
-.Account .col-25 {
+.addjob .col-25 {
 	float: left;
-	width: 30%;
+	width: 40%;
+	margin-top: 6px;
+    padding-left: 100px;
+   
+}
+.addjob .col-75 {
+	float: left;
+	width: 60%;
 	margin-top: 6px;
 }
-.Account .col-75 {
-	float: left;
-	width: 70%;
-	margin-top: 6px;
-}
 
-.Account input[type='text'],
+.addjob input[type='text'],
 select,
 textarea,
-.Account input[type='number'],
+.addjob input[type='number'],
 select,
 textarea,
-.Account input[type='date'],
+.addjob input[type='date'],
 select,
 textarea,
 
-.Account input[type='email'],
+.addjob input[type='email'],
 select,
 textarea,
 
-.Account textarea[type='text'],
-textarea,
-
-.Account input[type='password'],
+.addjob input[type='password'],
 select,
 textarea {
-	width: 50%;
+	width: 70%;
 	padding: 12px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
@@ -96,28 +101,28 @@ textarea {
 }
 
 /* Clear floats after the columns */
-.Account .row:after {
+.addjob .row:after {
 	content: '';
 	display: table;
 	clear: both;
 }
 /* files upload */
-.Account .rightSide-container-2 {
+/* .addjob .rightSide-container-2 {
 	padding-top: 45%;
-}
-.Account .fileupload label {
+} */
+/* .addjob .fileupload label {
 	width: 40%;
 	border-radius: 4px;
 	resize: vertical;
-}
-.Account .rightSide-container .text h4 {
+} */
+/* .addjob .rightSide-container .text h4 {
 	font-weight: 500;
 }
-.Account .fileupload [type='file'] {
+.addjob .fileupload [type='file'] {
 	width: 50%;
 	margin: 10px 5px 10px 0px;
-}
-.Account .fileupload input {
+} */
+/* .addjob .fileupload input {
 	background-color: #a7a8a7;
 	color: white;
 	padding: 12px;
@@ -126,18 +131,17 @@ textarea {
 	cursor: pointer;
 	width: 19%;
 }
-.Account .fileupload input:hover {
+.addjob .fileupload input:hover {
 	background-color: rgb(203, 205, 209);
-}
+} */
 /* buttonHolder */
-.Account .buttonHolder {
+.addjob .buttonHolder {
 	display: flex;
 	justify-content: space-around;
 	background-color: #ffffff;
+    margin:50PX;
 }
-.Account .button-17 {
-	width: 10%;
-}
+
 .Account .mandatory-indicator {
 	color: red;
 	margin-left: 5px;

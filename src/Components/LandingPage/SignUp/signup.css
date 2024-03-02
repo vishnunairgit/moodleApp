@@ -9,8 +9,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height:100vh ;
-    margin: 50px;
+    /* height:100vh ; */
+    /* margin-top: 130px; */
+    /* padding-top: 50px; */
+    padding: 50px;
+  
 }
 .signUp{
   width: 40%;
@@ -38,7 +41,7 @@
 
 
 /* Full-width input fields */
-  .signUp 
+ .signUp 
   input[type=text], input[type=password], input[type=email],input[type=number] {
   width: 100%;
   padding: 15px;

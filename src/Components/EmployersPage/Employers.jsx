@@ -29,7 +29,7 @@ function Employers() {
 
             <div className='companyAdress-Button'>
               <button className='btn btn-primary ' type="button">follow</button> 
-              <button className='btn btn-primary ' type="button">2 job openings </button>
+              <button className='btn btn-primary ' type="button">Add job </button>
             </div>
 
           </div>

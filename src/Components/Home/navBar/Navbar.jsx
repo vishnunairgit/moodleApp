@@ -18,11 +18,20 @@ function Navbar() {
   const handleAccount = () => {
     navigate('/account');
   };
+  const handleJob = () => {
+    navigate('/addJob')
+  }
+
+  const handleAlljob = () =>{
+    navigate('/alljob')
+  }
 
   const handleLogout = () => {
     localStorage.clear()
     navigate('/')
   }
+
+
 
 
   return (
@@ -45,29 +54,30 @@ function Navbar() {
 
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="#" onClick={handleAccount}>Account</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Link</a>
-              </li>
+              </li> */}
+              {/* <li className="nav-item">
+                <a className="nav-link" href="#" onClick={handleJob}>Post job</a>
+              </li> */}
 
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
+                  JOBS
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a className="dropdown-item" href="#">Action</a></li>
-                  <li><a className="dropdown-item" href="#">Another action</a></li>
+                  <li><a className="dropdown-item" href="#" onClick={handleJob}>Post job</a></li>
+                  <li><a className="dropdown-item" href="#" onClick={handleAlljob}>List JOB</a></li>
                   <li><hr className="dropdown-divider" /></li>
                   <li><a className="dropdown-item" href="#">Something else here</a></li>
                 </ul>
               </li>
 
+
               {/* <li className="nav-item">
                 <a className="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
               </li> */}
-              
+
             </ul>
 
             {/* <form className="d-flex">
@@ -77,23 +87,23 @@ function Navbar() {
 
 
             <div className="btn-group">
-              <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <button className="btn btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src={notification} alt="" />
               </button>
-              <ul className="dropdown-menu ">
+              <ul className="dropdown-menu">
                 <li><a className="dropdown-item" href="#">alert _1</a></li>
                 <li><a className="dropdown-item" href="#">alert_2: </a></li>
               </ul>
-           </div>
+            </div>
 
             <div className='user-dropdown'>
               <div className="btn-group">
-                <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <button className="btn btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                   <img src={user} alt="" />
 
                 </button>
                 <ul className="dropdown-menu ">
-                  <li><a className="dropdown-item" href="#">User :</a></li>
+                  <button className='button_01' type="button" onClick={handleAccount}>USER</button>
                   <button className='button_01' type="button" onClick={handleLogout}>LogOut</button>
 
 
@@ -102,7 +112,7 @@ function Navbar() {
             </div>
 
           </div>
-          </div>
+        </div>
       </nav>
     </div>
   )

@@ -31,8 +31,9 @@ function Signup({ setloginsignup }) {
                 .then((res) => {
                     console.log(res);
                     if (res.data.message === 'signUp successful') {
-                        alert('signUp successful')
                         setloginsignup('Login')
+                        alert('signUp successful')
+                        
                     }
                     if (res.data.message === 'email is already exist') {
                         alert('email is already exist')
@@ -55,7 +56,7 @@ function Signup({ setloginsignup }) {
     </div> */}
 
 
-            <div className='signupContainers '>
+            <div className='signupContainers'>
                 <div style={{ border: "1px solid #ccc" }} className="signUp">
                     <div className="container">
                         <h2>Sign Up</h2>

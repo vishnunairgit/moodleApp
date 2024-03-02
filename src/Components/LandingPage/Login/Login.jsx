@@ -22,35 +22,6 @@ function Login({ setloginsignup }) {
   //   setLoginUserData({ ...LoginUserData, [e.target.name]: e.target.value })
   // }
 
-
-  // const handleUserLogin = async () => {
-
-  // const userData = await  loginUser(LoginUserData)
-  // setLoginUserData({ ...LoginUserData, error:null});
-
-  //   if (userData && userData.token) {
-  //     debugger
-  //     localStorage.setItem("token", userData.token )
-  //     const parsedToken = parseJwt(userData.token)
-
-  //     console.log(userData.token);
-  //     console.log(parsedToken, '----parsedToken-----');
-
-  //     localStorage.setItem("user", JSON.stringify(parsedToken));
-
-  //     alert('Login Successful')
-  //     navigate('/home')
-
-
-
-  //         // Clear password from state
-  //         setLoginUserData({ ...LoginUserData, password: '' });
-
-  //       }else if (userData && userData.error) {
-  //         alert(userData.error)
-  //       }
-
-  // }
   const handleUserLogin = () => {
     try {
       if (LoginUserData.email && LoginUserData.password) {

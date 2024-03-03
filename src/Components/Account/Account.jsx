@@ -6,14 +6,18 @@ import AxiosInstance from '../../config/AxiosInstance'
 function Account() {
 
   const [Singleuser, setSingleuser] = useState([])
-
   useEffect(() => {
-    GetUserData()
-  }, [])
+    const userDataString  = localStorage.getItem('user');
+    if (userDataString ) {
+      const userData = JSON.parse(userDataString);
+      const userEmail = userData.email;
+      GetUserData(userEmail);
+    }
+  }, []);
 
   const GetUserData = async (email) => {
     try {
-      const response = await AxiosInstance.get('/users/GetUser', { Id: email })
+      const response = await AxiosInstance.get('/users/GetUser', { params: {email : email }})
       debugger
       setSingleuser(response.data);
       console.log(setSingleuser, '------------------setSingleuser--------------');

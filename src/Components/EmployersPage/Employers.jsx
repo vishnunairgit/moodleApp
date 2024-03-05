@@ -27,17 +27,17 @@ function Employers() {
             <div>ATTO COM pvt Ltd</div> 
             <div><img src={locationLogo} alt="" />: jp nager</div>
 
-            <div className='companyAdress-Button'>
+            {/* <div className='companyAdress-Button'>
               <button className='btn btn-primary ' type="button">follow</button> 
               <button className='btn btn-primary ' type="button">Add job </button>
-            </div>
+            </div> */}
 
           </div>
         </div>
 
         <div className='company-Details-RS'>
-          <div><button className='btn btn-primary ' type="button">Write a review</button></div>
-          <div><button className='btn btn-primary' type="button">message</button></div>
+          {/* <div><button className='btn btn-primary ' type="button">Write a review</button></div> */}
+          {/* <div><button className='btn btn-primary' type="button">message</button></div> */}
         </div>
 
       </div>

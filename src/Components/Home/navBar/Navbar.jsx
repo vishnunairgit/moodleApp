@@ -69,7 +69,7 @@ function Navbar() {
                   <li><a className="dropdown-item" href="#" onClick={handleJob}>Post job</a></li>
                   <li><a className="dropdown-item" href="#" onClick={handleAlljob}>List JOB</a></li>
                   <li><hr className="dropdown-divider" /></li>
-                  <li><a className="dropdown-item" href="#">Something else here</a></li>
+                  {/* <li><a className="dropdown-item" href="#">Something else here</a></li> */}
                 </ul>
               </li>
 

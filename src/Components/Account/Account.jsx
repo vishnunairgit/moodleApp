@@ -31,7 +31,7 @@ function Account() {
   return (
     <div>
       <div className="Account">
-        <h2> ACCOUNT </h2>
+        <h2> COMPANY DETAILS </h2>
         <form
         //  onSubmit={handleSubmit}
         >

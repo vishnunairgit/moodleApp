@@ -1,8 +1,52 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './addjob.css'
+import AxiosInstance from '../../../config/AxiosInstance'
 
 function AddJob() {
-    return (
+
+    const [addJobs, setaddJobs] = useState({
+        JobTitle: '',
+        Experience: '',
+        location: '',
+        qualifications: '',
+        employmentType: '',
+        openings: '',
+        date: '',
+        Requirements: '',
+        Jobdescription: '',
+    })
+
+
+
+    const HandleAddJOb = (e) => {
+
+        setaddJobs({ ...addJobs, [e.target.name]: e.target.value })
+
+    }
+
+    const habdleaddpost = () => {
+        const userId=JSON.parse(localStorage.getItem("user")).userId
+
+        try {
+            AxiosInstance.post('admin/addJobpost',{...addJobs, cretedBy:userId})
+                .then((res) => {
+                    console.log(res);
+                    console.log(res.data);
+                    if (res.data.message === 'jon added successful') {
+                    }
+                    
+                })
+        } catch (error) {
+            console.log(error);
+        }
+
+
+
+    }
+
+
+
+    return (//////////
         <div>
             <div className="addjob">
                 <h2> POST JOB </h2>
@@ -21,14 +65,13 @@ function AddJob() {
 
                                 <div className="col-75">
                                     <input
+                                        value={addJobs.JobTitle}
                                         type="text"
                                         id="JobTitle"
                                         name="JobTitle"
                                         placeholder="JobTitle.."
-                                        // value={Singleuser?.CompanyName}
-                                        // onChange={(e) => {
-                                        //   setDisplayID(e.target.value);
-                                        // }}
+                                        onChange={HandleAddJOb}
+                                        
                                         required
                                     />
                                     <span> </span>
@@ -43,14 +86,14 @@ function AddJob() {
                                 </div>
                                 <div className="col-75">
                                     <input
-                                        type="text"
-                                        id="Experience "
-                                        name="Experience "
-                                        placeholder="3-4..."
-                                        // value={Singleuser?.registrationNumber}
-                                        // onChange={(e) => {
-                                        //   setassetType(e.target.value);
-                                        // }}
+                                    
+
+                                        value={addJobs.Experience}
+                                        type="text" 
+                                        id="Experience"
+                                        name="Experience"
+                                        placeholder="3-4.."
+                                        onChange={HandleAddJOb}
                                         required
                                     />
                                 </div>
@@ -59,19 +102,18 @@ function AddJob() {
                             <div className="row">
                                 <div className="col-25">
                                     <label htmlFor="location ">
-                                      JOB LOCATION <span className="mandatory-indicator">*</span>
+                                        JOB LOCATION <span className="mandatory-indicator">*</span>
                                     </label>
                                 </div>
                                 <div className="col-75">
                                     <input
+                                        value={addJobs.location}
                                         type="text"
-                                        id="location "
-                                        name="location "
-                                        placeholder="location..."
-                                        // value={Singleuser?.registrationNumber}
-                                        // onChange={(e) => {
-                                        //   setassetType(e.target.value);
-                                        // }}
+                                        id="location"
+                                        name="location"
+                                        placeholder="location.."
+                                        onChange={HandleAddJOb}
+                                        
                                         required
                                     />
                                 </div>
@@ -83,14 +125,19 @@ function AddJob() {
                                     <label htmlFor="qualifications">EDUCATIONAL QUALIFICATION</label>
                                 </div>
                                 <div className="col-75">
-                                    <select name="" id=""
+                                    <select
+                                    type="text"
+                                    name="qualifications"
+                                        id="qualifications"
                                         placeholder="location..."
-                                
+                                        value={addJobs.qualifications}
+                                        onChange={HandleAddJOb}
+
                                     >
                                         <option value="">Select qualifications</option>
-                                        <option value="">B-Tech</option>
-                                        <option value="">M-Tech</option>
-                                        <option value="">MBA</option>
+                                        <option value="B-Tech">B-Tech</option>
+                                        <option value="M-Tech">M-Tech</option>
+                                        <option value="MBA">MBA</option>
 
                                     </select>
                                 </div>
@@ -101,14 +148,18 @@ function AddJob() {
                                     <label htmlFor="Employment Type">EMPLOYMENT TYPE</label>
                                 </div>
                                 <div className="col-75">
-                                    <select name="" id="">
+                                    <select
+                                        type="text"
+                                        name="employmentType"
+                                        id="employmentType"
+                                        value={addJobs.employmentType}
+                                        onChange={HandleAddJOb}
+                                    >
                                         <option value="">Select Employment Type</option>
-                                        <option value="">Full Time</option>
-                                        <option value="">Part Time</option>
-                                        <option value="">Permanent</option>
-                                        <option value="">Work From Home</option>
-
-
+                                        <option value="Full Time">Full Time</option>
+                                        <option value="Part Time">Part Time</option>
+                                        <option value="Permanent">Permanent</option>
+                                        <option value="Work From Home">Work From Home</option>
                                     </select>
                                 </div>
                             </div>
@@ -119,15 +170,12 @@ function AddJob() {
                                 </div>
                                 <div className="col-75">
                                     <input
+                                        value={addJobs.openings}
                                         type="number"
                                         id="openings"
                                         name="openings"
                                         placeholder="3.."
-                                    // value={Singleuser?.phonenumber}
-
-                                    // onChange={(e) => {
-                                    //   setScientificName(e.target.value);
-                                    // }}
+                                        onChange={HandleAddJOb}
                                     />
                                 </div>
                             </div>
@@ -135,18 +183,18 @@ function AddJob() {
                             <div className="row">
                                 <div className="col-25">
                                     <label htmlFor="date">
-                                     JOB POST DATE <span className="mandatory-indicator"></span>
+                                        JOB POST DATE <span className="mandatory-indicator"></span>
                                     </label>
                                 </div>
                                 <div className="col-75">
                                     <input
+                                        value={addJobs.date}
                                         type="date"
                                         id="date"
                                         name="date"
                                         placeholder="date.."
-                                    // onChange={(e) => {
-                                    //   setAccessionNumber(e.target.value);
-                                    // }}
+                                        onChange={HandleAddJOb}
+
                                     />
                                 </div>
                             </div>
@@ -158,12 +206,13 @@ function AddJob() {
                                 </div>
                                 <div className="col-75">
                                     <textarea
+                                    type="text"
+                                        value={addJobs.Requirements}
                                         id="Requirements"
                                         name="Requirements"
                                         placeholder="Enter Requirements, each point on a new line..."
-                                    // onChange={(e) => {
-                                    //   setScientificName(e.target.value);
-                                    // }}
+                                        onChange={HandleAddJOb}
+
                                     />
                                 </div>
                             </div>
@@ -174,12 +223,14 @@ function AddJob() {
                                 </div>
                                 <div className="col-75">
                                     <textarea
+                                    type="text"
+                                        value={addJobs.Jobdescription}
                                         id="Jobdescription"
                                         name="Jobdescription"
                                         placeholder="Enter Jobdescription, each point on a new line..."
-                                    // onChange={(e) => {
-                                    //   setScientificName(e.target.value);
-                                    // }}
+                                        onChange={HandleAddJOb}
+
+                                    
                                     />
                                 </div>
                             </div>
@@ -187,13 +238,6 @@ function AddJob() {
 
 
                         </div>
-
-
-                        {/* <div className="rightSide-container">
-          <div className="rightSide-container-2">
-        
-          </div>
-        </div> */}
 
                     </div>
 
@@ -204,6 +248,7 @@ function AddJob() {
                             className="button-17"
                             type="submit"
                             style={{ backgroundColor: "rgb(10, 150, 250)", color: "white" }}
+                            onClick={habdleaddpost}
                         >
                             Submit
                         </button>

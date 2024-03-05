@@ -1,23 +1,48 @@
 import React, { useEffect, useState } from 'react'
 import './account.css'
-import AxiosInstance from '../../config/AxiosInstance'
+import AxiosInstance from '../../../config/AxiosInstance'
+import { useNavigate } from 'react-router-dom'
 
 
 function Account() {
+  const  navigate =useNavigate()
 
   const [Singleuser, setSingleuser] = useState([])
-  useEffect(() => {
-    const userDataString  = localStorage.getItem('user');
-    if (userDataString ) {
-      const userData = JSON.parse(userDataString);
-      const userEmail = userData.email;
-      GetUserData(userEmail);
-    }
-  }, []);
 
-  const GetUserData = async (email) => {
+  // useEffect(() => {
+  //   const userDataString  = localStorage.getItem('user');
+  //   if (userDataString ) {
+  //     const userData = JSON.parse(userDataString);
+  //     const userEmail = userData.email;
+  //     GetUserData(userEmail);
+  //   }
+  // }, []);
+
+  // const GetUserData = async (email) => {
+  //   try {
+  //     const response = await AxiosInstance.get('/users/GetUser', { params: {email : email }})
+  //     debugger
+  //     setSingleuser(response.data);
+  //     console.log(setSingleuser, '------------------setSingleuser--------------');
+  //   } catch (error) {
+  //     console.log(error, '-----------error-----------');
+  //     console.error('Error fetching data:', error)
+  //   }
+  // };
+  useEffect(()=>{
+
+    GetUserData()
+
+  },[])
+
+
+
+   const GetUserData = async () => {
+    
+    const userId=JSON.parse(localStorage.getItem("user")).userId
+    debugger
     try {
-      const response = await AxiosInstance.get('/users/GetUser', { params: {email : email }})
+      const response = await AxiosInstance.get('/admin/GetUser' , {params:{userId:userId}})
       debugger
       setSingleuser(response.data);
       console.log(setSingleuser, '------------------setSingleuser--------------');
@@ -26,6 +51,12 @@ function Account() {
       console.error('Error fetching data:', error)
     }
   };
+
+  // ------------edit company----------------------
+
+  const handleedit = ()=>{
+    navigate('/editCompany')
+  }
 
 
   return (
@@ -52,9 +83,6 @@ function Account() {
                     name="CompanyName"
                     placeholder="Company Name.."
                     value={Singleuser?.CompanyName}
-                    // onChange={(e) => {
-                    //   setDisplayID(e.target.value);
-                    // }}
                     required
                   />
                   <span> </span>
@@ -74,9 +102,6 @@ function Account() {
                     name="registrationNumber"
                     placeholder="RegistrationNumber.."
                     value={Singleuser?.registrationNumber}
-                    // onChange={(e) => {
-                    //   setassetType(e.target.value);
-                    // }}
                     required
                   />
                 </div>
@@ -92,10 +117,6 @@ function Account() {
                     name="email"
                     placeholder="email.."
                     value={Singleuser?.email}
-
-                  // onChange={(e) => {
-                  //   setScientificName(e.target.value);
-                  // }}
                   />
                 </div>
               </div>
@@ -112,9 +133,6 @@ function Account() {
                     placeholder="email.."
                     value={Singleuser?.phonenumber}
 
-                  // onChange={(e) => {
-                  //   setScientificName(e.target.value);
-                  // }}
                   />
                 </div>
               </div>
@@ -131,9 +149,7 @@ function Account() {
                     id="Address"
                     name="Address"
                     placeholder="Address.."
-                  // onChange={(e) => {
-                  //   setAccessionNumber(e.target.value);
-                  // }}
+                 
                   />
                 </div>
               </div>
@@ -151,9 +167,7 @@ function Account() {
                     id="website"
                     name="website"
                     placeholder="website.."
-                    // onChange={(e) => {
-                    //   setLocation(e.target.value);
-                    // }}
+                    
                     required
                   />
                 </div>
@@ -171,9 +185,7 @@ function Account() {
                     id="LinkedIn "
                     name="LinkedIn "
                     placeholder="LinkedIn .."
-                    // onChange={(e) => {
-                    //   setLocation(e.target.value);
-                    // }}
+                   
                     required
                   />
                 </div>
@@ -189,29 +201,10 @@ function Account() {
                     id="Industry"
                     name="Industry"
                     placeholder="Industry.."
-                  // onChange={(e) => {
-                  //   setunique_importance(e.target.value);
-                  // }}
+                  
                   />
                 </div>
               </div>
-
-              {/* <div className="row">
-              <div className="col-25">
-                <label htmlFor="Headquarters">HEADQUARTRS</label>
-              </div>
-              <div className="col-75">
-                <input
-                  type="text"
-                  id="Headquarters"
-                  name="Headquarters"
-                  placeholder="Headquarters.."
-                  // onChange={(e) => {
-                  //   setPlantationDate(e.target.value);
-                  // }}
-                />
-              </div>
-            </div> */}
 
               <div className="row">
                 <div className="col-25">
@@ -223,29 +216,11 @@ function Account() {
                     id="Incorporationdate"
                     name="Incorporationdate"
                     placeholder="ncorporation date.."
-                  // onChange={(e) => {
-                  //   setHarvestingDate(e.target.value);
-                  // }}
+                 
                   />
                 </div>
               </div>
 
-              {/* <div className="row">
-              <div className="col-25">
-                <label htmlFor="Company-size">COMPANY SIZE</label>
-              </div>
-              <div className="col-75">
-                <input
-                  type="text"
-                  id="Company-size"
-                  name="Company-size"
-                  placeholder="Company size.."
-                  // onChange={(e) => {
-                  //   setHarvestingDate(e.target.value);
-                  // }}
-                />
-              </div>
-            </div> */}
 
               <div className="row">
                 <div className="col-25">
@@ -257,9 +232,7 @@ function Account() {
                     id="about"
                     name="about"
                     placeholder="about the comapny..."
-                  // onChange={(e) => {
-                  //   setScientificName(e.target.value);
-                  // }}
+                 
                   />
                 </div>
               </div>
@@ -284,34 +257,6 @@ function Account() {
                   />
                   <br />
 
-                  {/* <label htmlFor="videoUpload">SELECT A VIDEOS</label>
-                <input
-                  type="file"
-                  id="videoUpload"
-                  name="videoUpload"
-                  accept="video/*"
-                /> */}
-
-                  {/* <br />
-                <label htmlFor="pdfUpload">SELECT A PDFS</label>
-                <input
-                  type="file"
-                  id="pdfUpload"
-                  name="pdfUpload"
-                  accept="application/pdf"
-                /> */}
-
-                  {/* <br />
-                <label htmlFor="audioUpload">SELECT AN AUDIO FILES</label>
-                <input
-                  type="file"
-                  id="audioUpload"
-                  name="audioUpload"
-                  accept="audio/*"
-                />
-                <br /> */}
-
-
                 </div>
                 <div className="text">
                   <h5>UPLOAD FILES</h5>
@@ -325,35 +270,6 @@ function Account() {
                     accept="image/*"
                   />
                   <br />
-
-                  {/* <label htmlFor="videoUpload">SELECT A VIDEOS</label>
-                <input
-                  type="file"
-                  id="videoUpload"
-                  name="videoUpload"
-                  accept="video/*"
-                /> */}
-
-                  {/* <br />
-                <label htmlFor="pdfUpload">SELECT A PDFS</label>
-                <input
-                  type="file"
-                  id="pdfUpload"
-                  name="pdfUpload"
-                  accept="application/pdf"
-                /> */}
-
-                  {/* <br />
-                <label htmlFor="audioUpload">SELECT AN AUDIO FILES</label>
-                <input
-                  type="file"
-                  id="audioUpload"
-                  name="audioUpload"
-                  accept="audio/*"
-                />
-                <br /> */}
-
-
                 </div>
 
 
@@ -371,8 +287,9 @@ function Account() {
               className="button-17"
               type="submit"
               style={{ backgroundColor: "rgb(10, 150, 250)", color: "white" }}
+              onClick={handleedit}
             >
-              Submit
+              Edit
             </button>
             <button
               className="button-17"

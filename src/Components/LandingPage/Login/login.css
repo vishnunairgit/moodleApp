@@ -41,6 +41,8 @@
     border: 1px solid #f1f1f1;
     margin-bottom: 25px;
   }
+
+
   
   /* Set a style for all buttons */
 
@@ -89,6 +91,9 @@
     position: fixed;
     right: 90px;
     margin-bottom: 15px;
+  }
+  .donthaveaccount{
+    margin: 30px;
   }
 
 

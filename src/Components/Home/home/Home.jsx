@@ -4,8 +4,8 @@ import { Route, Routes } from 'react-router-dom'
 import Employers from '../../EmployersPage/Employers'
 import AddJob from '../../Job/AddJob/AddJob'
 import Alljob from '../../Job/AllJobs/All Jobs/AllJob'
-import Account from '../../Company Details/View company/Account'
 import EditCompany from '../../Company Details/edit Company/EditCompany'
+import CompanyView from '../../Company Details/View company/CompanyView'
 
 function Home() {
   return (
@@ -15,10 +15,10 @@ function Home() {
       <div>
         <Routes>
         <Route path="/home" element={<Employers /> } />
-        <Route path="/account" element={<Account />} />
+        <Route path="/companyDetails" element={<CompanyView />} />
         <Route path="/addJob" element={<AddJob /> } />
         <Route path='/alljob' element={<Alljob />} />
-        <Route path="/editCompany"  element={<EditCompany/>} />
+        <Route path="/editCompany/:mailID"  element={<EditCompany/>} />
         
         </Routes>
       </div>

@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import './addjob.css'
 import AxiosInstance from '../../../config/AxiosInstance'
+import { useNavigate } from 'react-router-dom'
 
 function AddJob() {
+    const  navigate =useNavigate()
+
 
     const [addJobs, setaddJobs] = useState({
+        CreatedBy: "",
         JobTitle: '',
         Experience: '',
         location: '',
@@ -24,15 +28,20 @@ function AddJob() {
 
     }
 
-    const habdleaddpost = () => {
+    const habdleaddpost = (e) => {
+        e.preventDefault(); 
+
         const userId=JSON.parse(localStorage.getItem("user")).userId
 
         try {
-            AxiosInstance.post('admin/addJobpost',{...addJobs, cretedBy:userId})
+            AxiosInstance.post('admin/addJobpost',{...addJobs, CreatedBy:userId})
                 .then((res) => {
-                    console.log(res);
-                    console.log(res.data);
-                    if (res.data.message === 'jon added successful') {
+                    if (res.data.message === 'job added successful') {
+                        alert('job added successful')
+                        navigate('/alljob')
+                    }
+                    else{
+                        alert('Internal Server Error')
                     }
                     
                 })
@@ -51,7 +60,7 @@ function AddJob() {
             <div className="addjob">
                 <h2> POST JOB </h2>
                 <form
-                //  onSubmit={handleSubmit}
+                 onSubmit={habdleaddpost}
                 >
                     <div className="container">
                         <div className="leftSide-container">
@@ -71,7 +80,6 @@ function AddJob() {
                                         name="JobTitle"
                                         placeholder="JobTitle.."
                                         onChange={HandleAddJOb}
-                                        
                                         required
                                     />
                                     <span> </span>
@@ -86,8 +94,7 @@ function AddJob() {
                                 </div>
                                 <div className="col-75">
                                     <input
-                                    
-
+                                
                                         value={addJobs.Experience}
                                         type="text" 
                                         id="Experience"
@@ -113,13 +120,10 @@ function AddJob() {
                                         name="location"
                                         placeholder="location.."
                                         onChange={HandleAddJOb}
-                                        
                                         required
                                     />
                                 </div>
                             </div>
-
-
                             <div className="row">
                                 <div className="col-25">
                                     <label htmlFor="qualifications">EDUCATIONAL QUALIFICATION</label>
@@ -132,6 +136,7 @@ function AddJob() {
                                         placeholder="location..."
                                         value={addJobs.qualifications}
                                         onChange={HandleAddJOb}
+                                        required
 
                                     >
                                         <option value="">Select qualifications</option>
@@ -142,7 +147,6 @@ function AddJob() {
                                     </select>
                                 </div>
                             </div>
-
                             <div className="row">
                                 <div className="col-25">
                                     <label htmlFor="Employment Type">EMPLOYMENT TYPE</label>
@@ -154,6 +158,7 @@ function AddJob() {
                                         id="employmentType"
                                         value={addJobs.employmentType}
                                         onChange={HandleAddJOb}
+                                        required
                                     >
                                         <option value="">Select Employment Type</option>
                                         <option value="Full Time">Full Time</option>
@@ -163,7 +168,6 @@ function AddJob() {
                                     </select>
                                 </div>
                             </div>
-
                             <div className="row">
                                 <div className="col-25">
                                     <label htmlFor="openings">OPENINGS</label>
@@ -176,10 +180,10 @@ function AddJob() {
                                         name="openings"
                                         placeholder="3.."
                                         onChange={HandleAddJOb}
+                                        required
                                     />
                                 </div>
                             </div>
-
                             <div className="row">
                                 <div className="col-25">
                                     <label htmlFor="date">
@@ -194,12 +198,11 @@ function AddJob() {
                                         name="date"
                                         placeholder="date.."
                                         onChange={HandleAddJOb}
+                                        required
 
                                     />
                                 </div>
                             </div>
-
-
                             <div className="row">
                                 <div className="col-25">
                                     <label htmlFor="Requirements">REQUIREMENTS</label>
@@ -212,7 +215,7 @@ function AddJob() {
                                         name="Requirements"
                                         placeholder="Enter Requirements, each point on a new line..."
                                         onChange={HandleAddJOb}
-
+                                        required
                                     />
                                 </div>
                             </div>
@@ -229,8 +232,7 @@ function AddJob() {
                                         name="Jobdescription"
                                         placeholder="Enter Jobdescription, each point on a new line..."
                                         onChange={HandleAddJOb}
-
-                                    
+                                        required
                                     />
                                 </div>
                             </div>
@@ -248,7 +250,7 @@ function AddJob() {
                             className="button-17"
                             type="submit"
                             style={{ backgroundColor: "rgb(10, 150, 250)", color: "white" }}
-                            onClick={habdleaddpost}
+                            // onClick={habdleaddpost}
                         >
                             Submit
                         </button>

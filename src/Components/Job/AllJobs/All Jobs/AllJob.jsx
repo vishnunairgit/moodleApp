@@ -4,27 +4,25 @@ import AxiosInstance from '../../../../config/AxiosInstance'
 
 function Alljob() {
 
-  const [alljob, setalljob] = useState([ ])
+  const [alljob, setalljob] = useState([])
 
 
-  useEffect(()=>{
+  useEffect(() => {
     getallJOB()
-    
+  }, [])
 
-  },[])
-
-  const getallJOB = async (userId)=>{
+  const getallJOB = async (userId) => {
     try {
-      const responce = await AxiosInstance.get('users/getallJob', {params:{userId:userId}} )
+      const responce = await AxiosInstance.get('users/getallJob', { params: { userId: userId } })
       debugger
       setalljob(responce.data)
 
-      
+
     } catch (error) {
 
       console.error('Error fetching data:', error)
 
-      
+
     }
   }
 
@@ -33,9 +31,9 @@ function Alljob() {
   return (
     <div>
 
-      {alljob.map((allJobsss)=>(<AlljobCard  alljob={allJobsss} /> ))}
-        
-       
+      {alljob.map((allJobsss) => (<AlljobCard job={allJobsss} />))}
+
+
 
 
     </div>

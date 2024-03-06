@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './navbar.css';
-import logo from '../../Assets/logo.png';
+import logo from '../../Assets/net.america.png';
 import notification from '../../Assets/icons8-notification-24.png'
 import user from '../../Assets/icons8-user-24.png'
 // import hamburger from '../../Assets/icons8-hamburger-button-32.png';
@@ -16,7 +16,7 @@ function Navbar() {
   }
 
   const handleAccount = () => {
-    navigate('/account');
+    navigate('/companyDetails');
   };
   const handleJob = () => {
     navigate('/addJob')
@@ -40,7 +40,7 @@ function Navbar() {
         <div className="container-fluid">
           <a className="navbar-brand landingLogo" href="#"></a>
           <div className='landingLogo navbar-brand '>
-            <div className='company_name' onClick={handleHome} >CB-Tech</div>
+            <div className='company_name' onClick={handleHome} >net.America</div>
             <div>
               <img src={logo} alt="" />
             </div>
@@ -66,8 +66,8 @@ function Navbar() {
                   JOBS
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a className="dropdown-item" href="#" onClick={handleJob}>Post job</a></li>
-                  <li><a className="dropdown-item" href="#" onClick={handleAlljob}>List JOB</a></li>
+                  <li><a className="dropdown-item" href="#" onClick={handleJob}>POST JOB</a></li>
+                  <li><a className="dropdown-item" href="#" onClick={handleAlljob}>LIST JOB</a></li>
                   <li><hr className="dropdown-divider" /></li>
                   {/* <li><a className="dropdown-item" href="#">Something else here</a></li> */}
                 </ul>
@@ -86,25 +86,28 @@ function Navbar() {
             </form> */}
 
 
-            <div className="btn-group">
-              <button className="btn btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <div className="btn-group btn-group-alert">
+              <button className="btn btn dropdown-toggle" title='Notification' type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src={notification} alt="" />
               </button>
               <ul className="dropdown-menu">
                 <li><a className="dropdown-item" href="#">alert _1</a></li>
                 <li><a className="dropdown-item" href="#">alert_2: </a></li>
+                <li><a className="dropdown-item" href="#">alert_2: </a></li>
+
               </ul>
             </div>
 
             <div className='user-dropdown'>
-              <div className="btn-group">
-                <button className="btn btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  <img src={user} alt="" />
 
+              <div className="btn-group">
+                <button className="btn btn dropdown-toggle" type="button" title='User' id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src={user} alt="" />
                 </button>
-                <ul className="dropdown-menu ">
+      
+                <ul className="dropdown-menu user-dropdownmenu ">
                   <button className='button_01' type="button" onClick={handleAccount}>USER</button>
-                  <button className='button_01' type="button" onClick={handleLogout}>LogOut</button>
+                  <button className='button_02' type="button" onClick={handleLogout}>LogOut</button>
 
 
                 </ul>

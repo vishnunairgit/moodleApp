@@ -21,11 +21,34 @@ function Signup({ setloginsignup }) {
         setloginsignup("Login")
     }
 
-    // const userData = (e)=>{
-    //     setsignupData({...signupData, [e.target.name]: e.target.value })
-    // }
-
     const handieUserSignUp = () => {
+        if (signupData.CompanyName.length < 2) {
+            alert('Please enter a company name')
+            return;
+        }if (signupData.registrationNumber.length < 15) {
+            alert('Please enter registration number ')
+            return;
+        } if (signupData.phonenumber.length<5) {
+            alert('Please enter a phonenumber number ')
+        }
+        if (
+            !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
+                signupData.email
+            )
+          ) {
+            alert('Please enter a valid email address');
+            return;
+        }if (signupData.password.length<5) {
+            alert('Password must contain at least 5 characters.');
+            return;
+        }if (signupData.password !== signupData.confirmPassword ) {
+            alert('Your password and confirmation password do not match')
+            return;
+        }
+        
+        
+
+
         try {
             AxiosInstance.post('auth/signUp', signupData)
                 .then((res) => {

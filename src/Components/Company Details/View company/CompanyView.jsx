@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import './companydetails.css'
 import AxiosInstance from '../../../config/AxiosInstance'
 import { useNavigate } from 'react-router-dom'
 
 
-function EditCompany() {
+
+function CompanyView() {
     const  navigate =useNavigate()
 
     const [companyDetails, setcompanyDetails] = useState([])
@@ -32,8 +34,10 @@ function EditCompany() {
   
     // ------------edit company----------------------
   
+    const mailID = companyDetails.email
+    
     const handleedit = ()=>{
-      navigate('/editCompany')
+      navigate(`/editCompany/${mailID}`)
     }
   
   
@@ -222,7 +226,7 @@ function EditCompany() {
               <div className="rightSide-container">
                 <div className="rightSide-container-2">
   
-                  <div className="text">
+                  {/* <div className="text">
                     <h5>UPLOAD Logo</h5>
                   </div>
                   <div className="fileupload">
@@ -249,7 +253,7 @@ function EditCompany() {
                     />
                     <br />
                   </div>
-  
+   */}
   
   
   
@@ -261,15 +265,14 @@ function EditCompany() {
             {/* {error && <ErrorMessage message={error} />} */}
             <div className="buttonHolder">
               {/* <span><h3></h3></span> */}
-              {/* <button
+              <button
                 className="button-17"
                 type="submit"
                 style={{ backgroundColor: "rgb(10, 150, 250)", color: "white" }}
                 onClick={handleedit}
               >
                 Edit
-              </button> */}
-
+              </button>
               <button
                 className="button-17"
                 // onClick={handleReset}
@@ -296,6 +299,4 @@ function EditCompany() {
       </div>
     )
   }
-
-
-export default EditCompany
+export default CompanyView

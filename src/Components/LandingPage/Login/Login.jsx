@@ -83,7 +83,7 @@ function Login({ setloginsignup }) {
         {/* <div className='loginContainers' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}> */}
         <div className='login' style={{ border: '1px solid #ccc' }}>
           <div className="container">
-            <h1>Login</h1>
+            <h1 className='m-3'>Login</h1>
 
             <label htmlFor="email"><b>Email</b></label>
             <input type="text"
@@ -110,32 +110,13 @@ function Login({ setloginsignup }) {
                 required
                 onChange={(e)=> {setLoginUserData({ ...LoginUserData, [e.target.name]: e.target.value })}}
 
-
                 // onChange={loginData}
                 />
 
-              {/* {shouldShowImg &&
-                <img 
-                src={showPwd ? pwd.hidepwd :pwd.showpwd } 
-                alt={showPwd ? "pwd.hidepwd" :"pwd.showpwd" } 
-                className='pwd-img'
-                onClick={()=> setShowPwd(!showPwd)}
-                />} */}
-
-              {/* <button
-                    type="button"
-                    className="btn btn-outline-secondary"
-                    onClick={() => setShowPassword(!showPassword)}>
-                    {showPassword ? "Hide" : "Show"}
-                  </button> */}
 
             </div>
 
             {/* </div> */}
-
-
-
-
 
             <div className="clearfix">
               {/* <button type="button" className="cancelbtn">Cancel</button> */}
@@ -146,9 +127,8 @@ function Login({ setloginsignup }) {
             </div>
 
             <div>
-              <div>
-                <span>Don't have an account? <span onClick={() => handlelogin()} style={{ color: 'blue', fontWeight: '600' }}>Sign up</span> </span>
-
+              <div className='donthaveaccount'>
+                <span>Don't have an account? <a onClick={() => handlelogin()} style={{ color: 'blue', fontWeight: '600' }}>Sign up</a> </span>
 
               </div>
 

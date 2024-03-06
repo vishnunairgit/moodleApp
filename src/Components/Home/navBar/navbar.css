@@ -1,67 +1,29 @@
 
-.mainNav {
-    display: flex;
-    justify-content: space-between;
-    background-color: blue;
-    padding: 10px;
-    align-items: center;
-    height: 50px;
-}
 
-.links {
-    display: flex;
-}
-
-.menuIcon {
-    cursor: pointer;
-    display: none; /* Hide menuIcon by default */
-}
-
-/* Media query to show/hide menuIcon based on screen size */
-@media screen and (max-width: 990px) {
-    .links {
-        display: none; /* Hide links on smaller screens */
-    }
-
-    .menuIcon {
-        display: flex; /* Show menuIcon when the screen size is less than 990px */
-    }
-}
-
-.Navmodal {
-    text-align: left;
-    border: 2px solid black;
-    width: 25%;
-    margin: 20px;
-
-}
-
-.Navmodal .modalContent
-{
-    text-align: center;
-    margin: 5px;
-}
-
-.modalContent .modaldata
-{
-    margin: 5px;
-}
-
-.userdetails img{
+.navbar .company_name{
+    margin-left: 20px;
     padding-right: 10px;
 }
-.company_name{
-padding-right: 10px;
+.btn-group-alert .dropdown-menu{
+    left: -590px !important;
+    min-width: 720px;
+    top: 60px !important;
+
+
 }
 
 
-.user-dropdown .dropdown-menu[data-bs-popper] {
+.user-dropdown .user-dropdownmenu[data-bs-popper] {
     /* top: 100%; */
     left: -120px !important;
     /* margin-top: var(--bs-dropdown-spacer); */
+    top: 60px !important;
+
 }
 
-.navbar .user-dropdown .dropdown-menu {
-    padding: 15px;
-
+.navbar .dropdown-menu {
+    padding: 25px;
+}
+.user-dropdown {
+    margin-right: 20px;
 }

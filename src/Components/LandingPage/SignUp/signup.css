@@ -15,9 +15,13 @@
     padding: 50px;
   
 }
-.signUp{
+.signupContainers .signUp{
   width: 40%;
   padding: 5px;
+  background-color: white;
+  border-radius: 8px;
+  text-align: left;
+
 }
 
 /* ----------------type of Candidate section----------------*/
@@ -35,40 +39,34 @@
 
 /* .buttonContainer button {
     padding: 10px 20px 10px 20px;
-  } */
+ */
+ .signUp label b{
+  text-align: left !important;
+ }
 
 
 
 
 /* Full-width input fields */
- .signUp 
-  input[type=text], input[type=password], input[type=email],input[type=number] {
+ .signUp input[type=text], 
+ .signUp input[type=password], 
+ .signUp input[type=email],
+ .signUp input[type=number] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
   display: inline-block;
-  border: none;
-  background: #f1f1f1;
+  border: 1px solid black;
+  border-radius: 8px;
+
 }
 
-.signUp 
-input[type=text]:focus, input[type=password]:focus {
+.signUp input[type=text]:focus, 
+.signUp input[type=password]:focus {
   background-color: #ddd;
   outline: none;
 }
 
-/* .namefullname
-{
-display: flex;
-justify-content: space-between;
-align-items: center;
-justify-content: center;
-}
-.input-group
-{
-  flex: 1;
-  margin-right: 5px;
-} */
 
 .signUp hr {
   border: 1px solid #f1f1f1;
@@ -77,7 +75,7 @@ justify-content: center;
 
 /* Set a style for all buttons */
 .signUp button {
-  background-color: #04AA6D;
+  background-color:rgb(19, 98, 201);
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -120,4 +118,10 @@ justify-content: center;
   .cancelbtn, .signupbtn {
     width: 100%;
   }
+}
+
+
+.mandatory-indicator{
+  color: red;
+  font-size: 20px;
 }

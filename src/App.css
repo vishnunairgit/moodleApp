@@ -21,42 +21,49 @@
 
 
 .button_01{
-  min-width: 150px;
+  min-width: 100px;
   border-radius: 8px;
   background-color: rgb(25, 141, 83);
   color: white;
-  padding: 14px 20px;
+  padding: 8px 8px;
   margin: 8px 0;
   cursor: pointer;
   border: none;
   opacity: 0.9;
-  font-size: 23px;
+  /* font-size: 18px; */
+}
+.button_01:hover{
+  background-color: rgb(6, 114, 47);
 }
 
 .button_02 {
-  min-width: 150px;
+  min-width: 100px;
   border-radius: 8px;
-  background-color: rgb(206, 21, 21);
+  background-color: rgb(19, 98, 201);
   color: white;
-  padding: 14px 20px;
+  padding: 8px 8px;
   margin: 8px 0;
   cursor: pointer;
   border: none;
   opacity: 0.9;
-  font-size: 23px;
 
+}
+.button_02:hover{
+  background-color: rgb(7, 35, 156);
 }
 
 .button_03{
-  min-width: 150px;
+  min-width: 100px;
   border-radius: 8px;
-  background-color: rgb(29, 95, 236);
+  background-color: rgb(216, 84, 84);
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
+  padding: 10px 10px;
+  /* margin: 4px 0; */
   cursor: pointer;
   border: none;
   opacity: 0.9;
-  font-size: 23px;
 
+}
+.button_03:hover{
+  background-color: rgb(187, 59, 37);
 }

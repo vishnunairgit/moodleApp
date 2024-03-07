@@ -102,7 +102,7 @@
   /* align-items: center; */
   justify-content: center;
   /* height: 100vh; */
-  font-size: 25px;
+  /* font-size: 25px; */
 
 
 }
@@ -114,32 +114,32 @@
   text-align: left;
   width: 40%;
   background-color: white;
-  margin: 50px;
+  margin: 40px;
   border-radius: 8px;
 
 }
 
 .login .mainheading p {
-  font-size: 50px;
+  font-size: 30px;
   font-weight: bold;
 }
 
 .login .border {
   border-bottom: 2px solid black;
-  margin: 40px 0 40px 0 ;
+  margin: 20px 0 20px 0 ;
 }
 
 .login input[type=text],
-input[type=password] {
+.login  input[type=password] {
   width: 100%;
-  padding: 15px;
+  padding: 10px;
   margin: 5px 0 22px 0;
   display: inline-block;
   border: none;
   /* background: #f1f1f1; */
   border-radius: 10px;
-  border: 2px solid black;
-  font-size: 25px;
+  border: 1px solid black;
+  /* font-size: 25px; */
 }
 
 
@@ -151,4 +151,8 @@ input[type=password]:focus {
 
 .login a{
   text-decoration: none;
+}
+
+.login .signupbutton h5{
+  font-weight: bold;
 }

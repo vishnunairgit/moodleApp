@@ -82,15 +82,17 @@ function Signup({ setloginsignup }) {
             <div className='signupContainers'>
                 <div style={{ border: "1px solid #ccc" }} className="signUp">
                     <div className="container">
-                        <h2>Sign Up</h2>
+                        <h3><strong>New account</strong></h3>
                         <p>Please fill in this form to create an account.</p>
                         {/* <form onSubmit={handleSignUp}> */}
 
 
                         <label htmlFor="CompanyName">
-                            <b>Company Name</b>
+
+                            Company Name <span className="mandatory-indicator">*</span>
                         </label>
                         <input
+                        className='inputdata'
                             type="text"
                             placeholder="Enter Company Name"
                             // pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
@@ -103,7 +105,7 @@ function Signup({ setloginsignup }) {
                             required
                         />
                         <label htmlFor="registrationNumber">
-                            <b>registration number </b>
+                            registration number <span className="mandatory-indicator">*</span>
                         </label>
                         <input
                             type="text"
@@ -119,7 +121,7 @@ function Signup({ setloginsignup }) {
                         />
 
                         <label htmlFor="phonenumber">
-                            <b>phone number </b>
+                            phone number <span className="mandatory-indicator">*</span>
                         </label>
                         <input
                             type="number"
@@ -133,7 +135,7 @@ function Signup({ setloginsignup }) {
                         />
 
                         <label htmlFor="email">
-                            <b>Email</b>
+                            Email <span className="mandatory-indicator">*</span>
                         </label>
                         <input
                             type="email"
@@ -148,7 +150,7 @@ function Signup({ setloginsignup }) {
                         />
 
                         <label htmlFor="password">
-                            <b>Password</b>
+                            Password <span className="mandatory-indicator">*</span>
                         </label>
                         <input
                             type="password"
@@ -161,7 +163,7 @@ function Signup({ setloginsignup }) {
                         />
 
                         <label htmlFor="confirm Password">
-                            <b>confirm Password</b>
+                        confirm Password <span className="mandatory-indicator">*</span>
                         </label>
                         <input
                             type="password"
@@ -192,7 +194,7 @@ function Signup({ setloginsignup }) {
 
                         <div className="clearfix">
                             {/* <button type="button" className="cancelbtn">Cancel</button> */}
-                            <button type="button" className="signupbtn"
+                            <button type="button" className="button_01"
                                 onClick={handieUserSignUp}
                             >
                                 Sign Up
@@ -204,10 +206,8 @@ function Signup({ setloginsignup }) {
                                 <span>
                                     Have an account?{" "}
                                     <span
-                                        // both onClik are correct. once we clik the function that time only we need call the function 
-                                        // onClick={handilSignUp}
                                         onClick={() => handleSignUp()}
-                                        style={{ color: "blue", fontWeight: "600" }}>
+                                        style={{ color: "blue", fontWeight: "600",  }}>
                                         Log in
                                     </span>
                                 </span>

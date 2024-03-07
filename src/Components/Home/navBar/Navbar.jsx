@@ -90,7 +90,7 @@ function Navbar() {
               <button className="btn btn dropdown-toggle" title='Notification' type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src={notification} alt="" />
               </button>
-              <ul className="dropdown-menu">
+              <ul className="dropdown-menu bg-light">
                 <li><a className="dropdown-item" href="#">alert _1</a></li>
                 <li><a className="dropdown-item" href="#">alert_2: </a></li>
                 <li><a className="dropdown-item" href="#">alert_2: </a></li>
@@ -105,11 +105,9 @@ function Navbar() {
                   <img src={user} alt="" />
                 </button>
       
-                <ul className="dropdown-menu user-dropdownmenu ">
+                <ul className="dropdown-menu user-dropdownmenu bg-light">
                   <button className='button_01' type="button" onClick={handleAccount}>USER</button>
-                  <button className='button_02' type="button" onClick={handleLogout}>LogOut</button>
-
-
+                  <button className='button_02' type="button" onClick={handleLogout}>LOG OUT</button>
                 </ul>
               </div>
             </div>

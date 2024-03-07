@@ -142,44 +142,59 @@ function Login({ setloginsignup }) {
       <div className='main'>
 
         <div className='mainheading'>
-          <p>Log in to Career Booster</p>
+          <p>Log in to net.America</p>
         </div>
 
         <div className='input'>
           <input type="text"
             placeholder='Username'
-          /> <br />
-          <input type="text"
+            name="email"
+            value={LoginUserData.email}
+            onChange={(e) => { setLoginUserData({ ...LoginUserData, [e.target.name]: e.target.value }) }}
+
+          />
+
+          {/* <br /> */}
+
+
+          <input
+            type='password'
             placeholder='Password'
+            name="password"
+            value={LoginUserData.password}
+            required
+            onChange={(e) => { setLoginUserData({ ...LoginUserData, [e.target.name]: e.target.value }) }}
+
           />
         </div>
 
         <div className='loginbutton'>
-          <button className='button_03' type="button" >Log In</button>
+          <button className='button_02' type="button" onClick={handleUserLogin}
+          >Log In</button>
         </div>
         <a href="">Lost password</a>
 
         <div className='border'></div>
 
-        <div>
-          <h2>Is this your first time here?</h2>
+        <div className='signupbutton'>
+          <h5>Is this your first time here?</h5>
           <p>For full access to this site, you first need to create an account.</p>
-          <button type="button">Create new account</button>
-
+          <button className='button_01' type="button" onClick={() => handlelogin()}>Create new account</button>
         </div>
-        <div className='border'></div>
+        {/* <div className='border'></div> */}
 
-        <div>
+        {/* <div>
           <h2>Some courses may allow guest access</h2>
           <button type="button">Access as a guest</button>
 
-        </div>
-        <div className='border'></div>
+        </div> */}
 
-        <div>
+        {/* <div className='border'></div> */}
+
+        {/* <div>
         <button type="button">Access as a guest</button>
 
-        </div>
+        </div> */}
 
       </div>
 

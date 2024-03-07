@@ -6,38 +6,16 @@ import { useNavigate } from 'react-router-dom'
 import AxiosInstance from '../../../../config/AxiosInstance'
 
 function AlljobCard({ job }) {
-  const [singleJobdata, setsingleJobdata] = useState([ ])
 
   const  navigate =useNavigate()
 
   const handlejobViewPage = ()=>{
-    navigate(`/JobViewPagj/${job._id}`)
+    navigate(`/JobViewPagj/${job.id}`)
   }
 
 
-  useEffect(()=>{
 
-    getSingleJob()
-
-  },[])
-
-  const getSingleJob = async (_id)=>{
-    try {
-
-     const  response = await AxiosInstance.get('/admin/getSingleJobdata', {params:{jobId:_id}})
-      // debugger
-      setsingleJobdata(response.data)
-
-
-      
-    } catch (error) {
-      console.log(error);
-
-      
-    }
-
-  }
-
+const id = job._id
 
 
 

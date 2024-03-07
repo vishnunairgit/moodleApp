@@ -1,13 +1,53 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './alljobcard.css'
 import location from "../../../Assets/icons8-location-24.png"
 import {calculateTimeAgo , formatDate} from "../../../../helpers/helpers"
+import { useNavigate } from 'react-router-dom'
+import AxiosInstance from '../../../../config/AxiosInstance'
 
 function AlljobCard({ job }) {
+  const [singleJobdata, setsingleJobdata] = useState([ ])
+
+  const  navigate =useNavigate()
+
+  const handlejobViewPage = ()=>{
+    navigate(`/JobViewPagj/${job._id}`)
+  }
+
+
+  useEffect(()=>{
+
+    getSingleJob()
+
+  },[])
+
+  const getSingleJob = async (_id)=>{
+    try {
+
+     const  response = await AxiosInstance.get('/admin/getSingleJobdata', {params:{jobId:_id}})
+      // debugger
+      setsingleJobdata(response.data)
+
+
+      
+    } catch (error) {
+      console.log(error);
+
+      
+    }
+
+  }
+
+
+
+
+
+
+
 
   return (
     <div className='job'>
-      <div className="job-card">
+      <div className="job-card" onClick={handlejobViewPage} >
 
         <div className='title'>
           <div className='job-title'>
@@ -22,24 +62,17 @@ function AlljobCard({ job }) {
           </div>
         </div>
 
-        
         <div className='Location'>
           <p><strong><img src={location} alt="" />:</strong> {job.location}</p>
-          <p><strong>Experience:</strong> {job.Experience}</p>
+          <p><strong>Experience:</strong> {job.Experience}  years</p>
         </div>
         <div className='Qualifications'>
           <p><strong>Qualifications:</strong> {job.qualifications}</p>
           <p><strong>Employment Type:</strong> {job.employmentType}</p>
           <p><strong>Openings:</strong> {job.openings}</p>
         </div>
-        <p><strong>Date Posted:</strong> {formatDate(job?.date)}</p>
+        {/* <p><strong>Date Posted:</strong> {formatDate(job?.date)}</p> */}
         <p><strong>Date Posted:</strong> {calculateTimeAgo(job?.date)}</p>
-
-   
-
-        
-
-
 
       </div>
     </div>

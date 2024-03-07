@@ -266,7 +266,7 @@ function CompanyView() {
             <div className="buttonHolder">
               {/* <span><h3></h3></span> */}
               <button
-                className="button-17"
+                className="btn"
                 type="submit"
                 style={{ backgroundColor: "rgb(10, 150, 250)", color: "white" }}
                 onClick={handleedit}
@@ -274,14 +274,14 @@ function CompanyView() {
                 Edit
               </button>
               <button
-                className="button-17"
+                className="btn"
                 // onClick={handleReset}
                 style={{ backgroundColor: "rgb(0, 150, 0)", color: "white" }}
               >
                 Reset
               </button>
               <button
-                className="button-17"
+                className="btn"
                 // onClick={handleCancel}
                 style={{ backgroundColor: "rgb(200, 0, 0)", color: "white" }}
               >

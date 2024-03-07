@@ -35,8 +35,8 @@ function Langing() {
           <button className='button_01' type="button" onClick={handleLogin} >Login</button>
         </div>
 
-      </div>
-      <div>
+          </div>
+          <div>
       </div>
     </>
   )

@@ -1,26 +1,24 @@
-*,*::after,*::before{
+/* *,*::after,*::before{
     box-sizing: border-box;
     text-transform: capitalize;
   }
   
   
-  * {box-sizing: border-box}
-  
-  .loginContainers{
-    /* width: 30%; */
-    /* margin-left: 35%; */
+  * {box-sizing: border-box} */
+
+/* .loginContainers{
     display: flex;
     align-items: center;
     justify-content: center;
     height:100vh ;
     
-  }
+  } */
 
 
 
 
-  /* Full-width input fields */
-    .login 
+/* Full-width input fields */
+/* .login 
     input[type=text], input[type=password] {
     width: 100%;
     padding: 15px;
@@ -40,41 +38,41 @@
   .login hr {
     border: 1px solid #f1f1f1;
     margin-bottom: 25px;
-  }
+  } */
 
 
-  
-  /* Set a style for all buttons */
 
-  
-  .login button:hover {
+/* Set a style for all buttons */
+
+
+/* .login button:hover {
     opacity:1;
-  }
-  
-  /* Extra styles for the cancel button */
-  .login .cancelbtn {
+  } */
+
+/* Extra styles for the cancel button */
+/* .login .cancelbtn {
     padding: 14px 20px;
     background-color: #f44336;
-  }
-  
-  /* Float cancel and signup buttons and add an equal width */
-  .login .cancelbtn, .signupbtn {
+  } */
+
+/* Float cancel and signup buttons and add an equal width */
+/* .login .cancelbtn, .signupbtn {
     float: left;
     width: 50%;
   }
-  
-  /* Add padding to container elements */
+   */
+/* Add padding to container elements */
 
-  
-  /* Clear floats */
-  .login .clearfix::after {
+
+/* Clear floats */
+/* .login .clearfix::after {
     content: "";
     clear: both;
     display: table;
-  }
-  
-  /* Change styles for cancel button and signup button on extra small screens */
-  @media screen and (max-width: 300px) {
+  } */
+
+/* Change styles for cancel button and signup button on extra small screens */
+/* @media screen and (max-width: 300px) {
     .cancelbtn, .signupbtn {
       width: 100%;
     }
@@ -94,7 +92,63 @@
   }
   .donthaveaccount{
     margin: 30px;
-  }
+  } */
 
 
-  
+
+
+.login {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  /* height: 100vh; */
+  font-size: 25px;
+
+
+}
+
+.login .main {
+  /* border: 2px solid black; */
+  /* box-shadow: 5px 5px   lightblue; */
+  padding: 50px;
+  text-align: left;
+  width: 40%;
+  background-color: white;
+  margin: 50px;
+  border-radius: 8px;
+
+}
+
+.login .mainheading p {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.login .border {
+  border-bottom: 2px solid black;
+  margin: 40px 0 40px 0 ;
+}
+
+.login input[type=text],
+input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  /* background: #f1f1f1; */
+  border-radius: 10px;
+  border: 2px solid black;
+  font-size: 25px;
+}
+
+
+.login input[type=text]:focus,
+input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.login a{
+  text-decoration: none;
+}

@@ -28,7 +28,7 @@ function Login({ setloginsignup }) {
 
         AxiosInstance.post('/auth/Login', LoginUserData).then((res) => {
 
-          console.log(res,'---------res---------------');
+          console.log(res, '---------res---------------');
 
           if (res.data.message === "Login successful" && res.data.token) {
             localStorage.setItem('token', res.data.token)
@@ -76,68 +76,114 @@ function Login({ setloginsignup }) {
 
 
   return (
-    <div>
+    // <div>
 
-      <div className='loginContainers'>
+    //   <div className='loginContainers'>
 
-        {/* <div className='loginContainers' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}> */}
-        <div className='login' style={{ border: '1px solid #ccc' }}>
-          <div className="container">
-            <h1 className='m-3'>Login</h1>
+    //     {/* <div className='loginContainers' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}> */}
+    //     <div className='login' style={{ border: '1px solid #ccc' }}>
+    //       <div className="container">
+    //         <h1 className='m-3'>Login</h1>
 
-            <label htmlFor="email"><b>Email</b></label>
-            <input type="text"
-              placeholder="Enter Email"
-              name="email"
-              value={LoginUserData.email}
-              required
-              // onChange={loginData}
-              onChange={(e)=> {setLoginUserData({ ...LoginUserData, [e.target.name]: e.target.value })}
-            }
+    //         <label htmlFor="email"><b>Email</b></label>
+    //         <input type="text"
+    //           placeholder="Enter Email"
+    //           name="email"
+    //           value={LoginUserData.email}
+    //           required
+    //           // onChange={loginData}
+    //           onChange={(e)=> {setLoginUserData({ ...LoginUserData, [e.target.name]: e.target.value })}
+    //         }
 
-            />
-
-
-            <label htmlFor="psw"><b>Password</b></label>
-            <div className='password-container' >
-              <input
-                // type={showPassword ? 'text' : 'password'}
-                // type={ showPwd ? "text" : "password"}
-                type='password'
-                placeholder="Enter Password"
-                name="password"
-                value={LoginUserData.password}
-                required
-                onChange={(e)=> {setLoginUserData({ ...LoginUserData, [e.target.name]: e.target.value })}}
-
-                // onChange={loginData}
-                />
+    //         />
 
 
-            </div>
+    //         <label htmlFor="psw"><b>Password</b></label>
+    //         <div className='password-container' >
+    //           <input
+    //             // type={showPassword ? 'text' : 'password'}
+    //             // type={ showPwd ? "text" : "password"}
+    //             type='password'
+    //             placeholder="Enter Password"
+    //             name="password"
+    //             value={LoginUserData.password}
+    //             required
+    //             onChange={(e)=> {setLoginUserData({ ...LoginUserData, [e.target.name]: e.target.value })}}
 
-            {/* </div> */}
+    //             // onChange={loginData}
+    //             />
 
-            <div className="clearfix">
-              {/* <button type="button" className="cancelbtn">Cancel</button> */}
-              <button type="submit"
-                className="button_01"
-                onClick={handleUserLogin}
-              >Log In</button>
-            </div>
 
-            <div>
-              <div className='donthaveaccount'>
-                <span>Don't have an account? <a onClick={() => handlelogin()} style={{ color: 'blue', fontWeight: '600' }}>Sign up</a> </span>
+    //         </div>
 
-              </div>
+    //         {/* </div> */}
 
-            </div>
-          </div>
+    //         <div className="clearfix">
+    //           {/* <button type="button" className="cancelbtn">Cancel</button> */}
+    //           <button type="submit"
+    //             className="button_01"
+    //             onClick={handleUserLogin}
+    //           >Log In</button>
+    //         </div>
+
+    //         <div>
+    //           <div className='donthaveaccount'>
+    //             <span>Don't have an account? <a onClick={() => handlelogin()} style={{ color: 'blue', fontWeight: '600' }}>Sign up</a> </span>
+
+    //           </div>
+
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
+
+    <div className='login'>
+      <div className='main'>
+
+        <div className='mainheading'>
+          <p>Log in to Career Booster</p>
         </div>
 
+        <div className='input'>
+          <input type="text"
+            placeholder='Username'
+          /> <br />
+          <input type="text"
+            placeholder='Password'
+          />
+        </div>
+
+        <div className='loginbutton'>
+          <button className='button_03' type="button" >Log In</button>
+        </div>
+        <a href="">Lost password</a>
+
+        <div className='border'></div>
+
+        <div>
+          <h2>Is this your first time here?</h2>
+          <p>For full access to this site, you first need to create an account.</p>
+          <button type="button">Create new account</button>
+
+        </div>
+        <div className='border'></div>
+
+        <div>
+          <h2>Some courses may allow guest access</h2>
+          <button type="button">Access as a guest</button>
+
+        </div>
+        <div className='border'></div>
+
+        <div>
+        <button type="button">Access as a guest</button>
+
+        </div>
 
       </div>
+
+
 
 
     </div>

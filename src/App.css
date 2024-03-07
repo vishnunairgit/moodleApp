@@ -20,27 +20,43 @@
 
 
 
-.button_01 {
-  background-color: #04AA6D;
-  min-height: 45px;
-  color: white;
-  /* padding: 14px 20px; */
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
+.button_01{
+  min-width: 150px;
   border-radius: 8px;
-}
-
-.button_02 {
-  background-color: #5451eb;
+  background-color: rgb(25, 141, 83);
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
-  border: none;
   cursor: pointer;
-  width: 100%;
+  border: none;
   opacity: 0.9;
+  font-size: 23px;
+}
+
+.button_02 {
+  min-width: 150px;
   border-radius: 8px;
+  background-color: rgb(206, 21, 21);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  cursor: pointer;
+  border: none;
+  opacity: 0.9;
+  font-size: 23px;
+
+}
+
+.button_03{
+  min-width: 150px;
+  border-radius: 8px;
+  background-color: rgb(29, 95, 236);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  cursor: pointer;
+  border: none;
+  opacity: 0.9;
+  font-size: 23px;
+
 }

@@ -29,7 +29,7 @@ function LoginPage() {
           </div>
           <div>
       </div>
-    <div className=''>
+    <div className='' style={{backgroundColor:'#f1f1f1'}}>
         {loginsignup === 'Login' && <Login setloginsignup ={setloginsignup} />}
         {loginsignup === 'Signup' && <Signup setloginsignup ={setloginsignup} />}
     </div>

@@ -17,7 +17,7 @@ function AddJob() {
         openings: '',
         date: '',
         Requirements: '',
-        Jobdescription: '',
+        // Jobdescription: '',
     })
 
 
@@ -220,7 +220,7 @@ function AddJob() {
                                 </div>
                             </div>
 
-                            <div className="row">
+                            {/* <div className="row">
                                 <div className="col-25">
                                     <label htmlFor="Jobdescription">JOB DESCRIOTION</label>
                                 </div>
@@ -235,7 +235,7 @@ function AddJob() {
                                         required
                                     />
                                 </div>
-                            </div>
+                            </div> */}
 
 
 

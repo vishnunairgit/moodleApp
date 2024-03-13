@@ -42,7 +42,7 @@ function Navbar() {
           <div className='landingLogo navbar-brand '>
             {/* <div className='company_name' onClick={handleHome} >net.America</div> */}
             <div>
-              <img src={logo} alt="" />
+              <img onClick={handleHome} src={logo} alt="" />
             </div>
           </div>
 

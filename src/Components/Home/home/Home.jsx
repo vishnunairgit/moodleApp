@@ -20,7 +20,7 @@ function Home() {
         <Route path="/addJob" element={<AddJob /> } />
         <Route path='/alljob' element={<Alljob />} />
         <Route path="/editCompany/:mailID"  element={<EditCompany/>} />
-        <Route path='/JobViewPagj/:_id' element={<JobViewPage />} />
+        <Route path='/jobViewPage/:id' element={<JobViewPage />} />
         
         </Routes>
       </div>

@@ -23,7 +23,7 @@ function Langing() {
       <div className='landingNav'>
         <div className='landingLogo'>
           <div className='company_name'>
-            net.America
+            {/* net.America */}
           </div>
           <div>
             <img src={Logo} alt="" />

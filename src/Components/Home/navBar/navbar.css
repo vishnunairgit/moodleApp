@@ -8,15 +8,15 @@
     left: -590px !important;
     min-width: 720px;
     top: 60px !important;
-
-
+}
+.navbar img{
+    border-radius: 0px;
 }
 .user-dropdown .user-dropdownmenu[data-bs-popper] {
     /* top: 100%; */
     left: -120px !important;
     /* margin-top: var(--bs-dropdown-spacer); */
     top: 60px !important;
-
 }
 .navbar .dropdown-menu {
     padding: 25px;

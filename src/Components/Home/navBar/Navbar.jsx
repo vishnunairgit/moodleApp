@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './navbar.css';
-import logo from '../../Assets/net.america.png';
+import logo from '../../Assets/net.america-1.png';
 import notification from '../../Assets/icons8-notification-24.png'
 import user from '../../Assets/icons8-user-24.png'
 // import hamburger from '../../Assets/icons8-hamburger-button-32.png';
@@ -40,7 +40,7 @@ function Navbar() {
         <div className="container-fluid">
           <a className="navbar-brand landingLogo" href="#"></a>
           <div className='landingLogo navbar-brand '>
-            <div className='company_name' onClick={handleHome} >net.America</div>
+            {/* <div className='company_name' onClick={handleHome} >net.America</div> */}
             <div>
               <img src={logo} alt="" />
             </div>

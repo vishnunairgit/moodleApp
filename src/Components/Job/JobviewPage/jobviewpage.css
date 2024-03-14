@@ -7,13 +7,11 @@
 .jobView .job-card {
     border: 1px solid #ccc;
     border-radius: 8px;
-    /* padding: 20px; */
     margin-bottom: 20px;
     background-color: #fff;
-    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
     box-shadow: 10px 10px 5px rgb(62, 87, 95);
     transition: transform 0.3s ease;
-    width: 50%;
+    width: 70%;
     
 }
 
@@ -34,8 +32,7 @@
     justify-content: space-around;
     margin-top: 0;
     font-size: 1.8rem;
-    background-color: #cfccd6; /* Default color for h2 */
-    /* margin-bottom: 10px; */
+    background-color: #cfccd6; 
     padding: 10px;
 }
 
@@ -61,14 +58,10 @@
     font-size: 1rem;
 }
 
-
-
-
-
 .jobView .Requirements
 {
     text-align: left;
-    /* margin-left: 20px; */
+    margin-left: 20px;
 }
 
 
@@ -82,6 +75,6 @@
 }
 
 .jobLabel {
-	flex-basis: 150px;
+	flex-basis: 190px;
 }
 

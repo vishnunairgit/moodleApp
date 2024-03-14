@@ -39,6 +39,11 @@ function CompanyView() {
     const handleedit = ()=>{
       navigate(`/editCompany/${mailID}`)
     }
+
+    const handleCancel = () =>{
+      navigate(-1);
+
+    }
   
   
     return (
@@ -158,7 +163,7 @@ function CompanyView() {
                 <div className="row">
                   <div className="col-25">
                     <label htmlFor="LinkedIn ">
-                      LINKEDLN ID  <span className="mandatory-indicator">*</span>
+                      LINKEDLN ID
                     </label>
                   </div>
                   <div className="col-75">
@@ -175,7 +180,7 @@ function CompanyView() {
   
                 <div className="row">
                   <div className="col-25">
-                    <label htmlFor="Industry">TYPE INDUSTRY</label>
+                    <label htmlFor="Industry">TYPE OF INDUSTRY</label>
                   </div>
                   <div className="col-75">
                     <input
@@ -206,7 +211,7 @@ function CompanyView() {
   
                 <div className="row">
                   <div className="col-25">
-                    <label htmlFor="about">ABOUT</label>
+                    <label htmlFor="about">ABOUT US</label>
                   </div>
                   <div className="col-75">
                     <textarea
@@ -266,23 +271,23 @@ function CompanyView() {
             <div className="buttonHolder">
               {/* <span><h3></h3></span> */}
               <button
-                className="btn"
+                className="button_02"
                 type="submit"
                 style={{ backgroundColor: "rgb(10, 150, 250)", color: "white" }}
                 onClick={handleedit}
               >
                 Edit
               </button>
-              <button
+              {/* <button
                 className="btn"
                 // onClick={handleReset}
                 style={{ backgroundColor: "rgb(0, 150, 0)", color: "white" }}
               >
                 Reset
-              </button>
+              </button> */}
               <button
-                className="btn"
-                // onClick={handleCancel}
+                className="button_03"
+                onClick={handleCancel}
                 style={{ backgroundColor: "rgb(200, 0, 0)", color: "white" }}
               >
                 Cancel

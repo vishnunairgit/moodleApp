@@ -52,13 +52,13 @@
   background-color: rgb(7, 35, 156);
 }
 
-.button_03{
+.button_03 {
   min-width: 100px;
   border-radius: 8px;
   background-color: rgb(216, 84, 84);
   color: white;
-  padding: 10px 10px;
-  /* margin: 4px 0; */
+  padding: 8px 8px;
+  margin: 10px 0;
   cursor: pointer;
   border: none;
   opacity: 0.9;

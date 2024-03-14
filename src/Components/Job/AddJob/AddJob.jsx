@@ -7,6 +7,8 @@ function AddJob() {
     const  navigate =useNavigate()
 
 
+
+
     const [addJobs, setaddJobs] = useState({
         CreatedBy: "",
         JobTitle: '',
@@ -49,9 +51,31 @@ function AddJob() {
             console.log(error);
         }
 
-
-
+    
     }
+// ---------------------------Cancel button---------------------------
+
+const handleCancel = ()=>{
+    navigate(-2)
+
+}
+
+// ---------------------------Reset button---------------------------
+
+
+const handleReset = () => {
+    setaddJobs({
+        CreatedBy: "",
+        JobTitle: '',
+        Experience: '',
+        location: '',
+        qualifications: '',
+        employmentType: '',
+        openings: '',
+        date: '',
+        Requirements: '',
+    });
+};
 
 
 
@@ -250,20 +274,19 @@ function AddJob() {
                             className="btn"
                             type="submit"
                             style={{ backgroundColor: "rgb(10, 150, 250)", color: "white" }}
-                            // onClick={habdleaddpost}
                         >
                             Submit
                         </button>
                         <button
                             className="btn btn"
-                            // onClick={handleReset}
+                            onClick={handleReset}
                             style={{ backgroundColor: "rgb(0, 150, 0)", color: "white" }}
                         >
                             Reset
                         </button>
                         <button
                             className="btn"
-                            // onClick={handleCancel}
+                            onClick={handleCancel}
                             style={{ backgroundColor: "rgb(200, 0, 0)", color: "white" }}
                         >
                             Cancel

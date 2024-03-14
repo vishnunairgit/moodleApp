@@ -3,10 +3,16 @@ import AxiosInstance from '../../../config/AxiosInstance'
 import { useParams } from 'react-router-dom';
 import { calculateTimeAgo } from '../../../helpers/helpers';
 import location from "../../Assets/icons8-location-24.png"
+import { useNavigate } from 'react-router-dom'
+
 import './jobviewpage.css'
 
 
 function JobViewPage() {
+
+  const  navigate =useNavigate()
+
+
   const { id } = useParams();
 
   const [singleJobdata, setsingleJobdata] = useState([])
@@ -35,6 +41,14 @@ function JobViewPage() {
     }
 
   }
+
+  const handleApplicants = ()=>{
+    navigate('/listApplicants')
+  }
+
+
+
+
   return (
     <div>
       <div className='jobView'>
@@ -110,8 +124,12 @@ function JobViewPage() {
               </div>
               <div className="jobLabel">: {singleJobdata?.employmentType} </div>
             </div>
-
-
+            <div className="jobRow" onClick={handleApplicants} >
+              <div className="jobLabel">
+                <strong>No of Applicants</strong>
+              </div>
+              <div className="jobLabel">: 20 </div>
+            </div>
 
             <div className='Requirements'>
               {singleJobdata?.Requirements && (

@@ -3,6 +3,7 @@ import './alljobcard.css'
 import location from "../../../Assets/icons8-location-24.png"
 import {calculateTimeAgo , formatDate} from "../../../../helpers/helpers"
 import { useNavigate, useParams } from 'react-router-dom'
+import student  from "../../../Assets/icons8-student-24.png"
 // import AxiosInstance from '../../../../config/AxiosInstance'
 
 function AlljobCard({ job }) {
@@ -23,36 +24,31 @@ function AlljobCard({ job }) {
       <div className="job-card" onClick={handlejobViewPage} >
 
         <div className='title'>
-          <div className='job-title'>
-            <div>{job.JobTitle}</div>
-          </div>
-          <p><strong>Date Posted:</strong> {calculateTimeAgo(job?.date)}</p>
+            <h4><strong><div>{job.JobTitle}</div></strong></h4>
 
-          <div  >
+          <p><strong><img src={location} alt="" /></strong> ;{job.location}</p>
+          <p><strong> <img src={student} alt="" /></strong> : 20 </p>
+
+
+
+
             <p>{job.status === 1 ? (
               <button style={{backgroundColor:'green'}} type="button">Active</button>
             ):(
               <button style={{backgroundColor:"red"}} type="button">Inactive</button>
             )}</p>
-          </div>
+
         </div>
 
         <div className='Location'>
-          <p><strong><img src={location} alt="" />:</strong> {job.location}</p>
           <p><strong>Experience:</strong> {job.Experience}  years</p>
           <p><strong>Openings:</strong> {job.openings}</p>
+          <p><strong>Date Posted:</strong> {calculateTimeAgo(job?.date)}</p>
           <p><strong>Qualifications:</strong> {job.qualifications}</p>
-
+          
 
         </div>
-        <div className='Qualifications'>
-          {/* <p><strong>Qualifications:</strong> {job.qualifications}</p> */}
-          {/* <p><strong>Employment Type:</strong> {job.employmentType}</p> */}
-          {/* <p><strong>Openings:</strong> {job.openings}</p> */}
-        </div>
-        {/* <p><strong>Date Posted:</strong> {formatDate(job?.date)}</p> */}
-      
-
+        
       </div>
     </div>
 

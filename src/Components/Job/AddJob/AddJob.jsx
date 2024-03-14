@@ -4,6 +4,8 @@ import AxiosInstance from '../../../config/AxiosInstance'
 import { useNavigate } from 'react-router-dom'
 
 function AddJob() {
+
+
     const  navigate =useNavigate()
 
 
@@ -22,15 +24,15 @@ function AddJob() {
         // Jobdescription: '',
     })
 
+   
 
-
-    const HandleAddJOb = (e) => {
+    const handleAddJOb = (e) => {
 
         setaddJobs({ ...addJobs, [e.target.name]: e.target.value })
 
     }
 
-    const habdleaddpost = (e) => {
+    const handleaddpost = (e) => {
         e.preventDefault(); 
 
         const userId=JSON.parse(localStorage.getItem("user")).userId
@@ -54,11 +56,12 @@ function AddJob() {
     
     }
 // ---------------------------Cancel button---------------------------
-
 const handleCancel = ()=>{
     navigate(-2)
 
 }
+
+
 
 // ---------------------------Reset button---------------------------
 
@@ -84,7 +87,7 @@ const handleReset = () => {
             <div className="addjob">
                 <h2> POST JOB </h2>
                 <form
-                 onSubmit={habdleaddpost}
+                 onSubmit={handleaddpost}
                 >
                     <div className="container">
                         <div className="leftSide-container">
@@ -103,7 +106,7 @@ const handleReset = () => {
                                         id="JobTitle"
                                         name="JobTitle"
                                         placeholder="JobTitle.."
-                                        onChange={HandleAddJOb}
+                                        onChange={handleAddJOb}
                                         required
                                     />
                                     <span> </span>
@@ -124,7 +127,7 @@ const handleReset = () => {
                                         id="Experience"
                                         name="Experience"
                                         placeholder="3-4.."
-                                        onChange={HandleAddJOb}
+                                        onChange={handleAddJOb}
                                         required
                                     />
                                 </div>
@@ -143,14 +146,15 @@ const handleReset = () => {
                                         id="location"
                                         name="location"
                                         placeholder="location.."
-                                        onChange={HandleAddJOb}
+                                        onChange={handleAddJOb}
                                         required
                                     />
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col-25">
-                                    <label htmlFor="qualifications">EDUCATIONAL QUALIFICATION</label>
+                                    <label htmlFor="qualifications">EDUCATIONAL QUALIFICATION
+                                    <span className="mandatory-indicator">*</span></label>
                                 </div>
                                 <div className="col-75">
                                     <select
@@ -159,7 +163,7 @@ const handleReset = () => {
                                         id="qualifications"
                                         placeholder="location..."
                                         value={addJobs.qualifications}
-                                        onChange={HandleAddJOb}
+                                        onChange={handleAddJOb}
                                         required
 
                                     >
@@ -173,7 +177,8 @@ const handleReset = () => {
                             </div>
                             <div className="row">
                                 <div className="col-25">
-                                    <label htmlFor="Employment Type">EMPLOYMENT TYPE</label>
+                                    <label htmlFor="Employment Type">EMPLOYMENT TYPE
+                                    <span className="mandatory-indicator">*</span></label>
                                 </div>
                                 <div className="col-75">
                                     <select
@@ -181,7 +186,7 @@ const handleReset = () => {
                                         name="employmentType"
                                         id="employmentType"
                                         value={addJobs.employmentType}
-                                        onChange={HandleAddJOb}
+                                        onChange={handleAddJOb}
                                         required
                                     >
                                         <option value="">Select Employment Type</option>
@@ -203,7 +208,7 @@ const handleReset = () => {
                                         id="openings"
                                         name="openings"
                                         placeholder="3.."
-                                        onChange={HandleAddJOb}
+                                        onChange={handleAddJOb}
                                         required
                                     />
                                 </div>
@@ -211,7 +216,7 @@ const handleReset = () => {
                             <div className="row">
                                 <div className="col-25">
                                     <label htmlFor="date">
-                                        JOB POST DATE <span className="mandatory-indicator"></span>
+                                        JOB POST DATE <span className="mandatory-indicator">*</span>
                                     </label>
                                 </div>
                                 <div className="col-75">
@@ -221,7 +226,7 @@ const handleReset = () => {
                                         id="date"
                                         name="date"
                                         placeholder="date.."
-                                        onChange={HandleAddJOb}
+                                        onChange={handleAddJOb}
                                         required
 
                                     />
@@ -229,7 +234,8 @@ const handleReset = () => {
                             </div>
                             <div className="row">
                                 <div className="col-25">
-                                    <label htmlFor="Requirements">REQUIREMENTS</label>
+                                    <label htmlFor="Requirements">REQUIREMENTS
+                                    <span className="mandatory-indicator">*</span></label>
                                 </div>
                                 <div className="col-75">
                                     <textarea
@@ -238,7 +244,7 @@ const handleReset = () => {
                                         id="Requirements"
                                         name="Requirements"
                                         placeholder="Enter Requirements, each point on a new line..."
-                                        onChange={HandleAddJOb}
+                                        onChange={handleAddJOb}
                                         required
                                     />
                                 </div>
@@ -271,25 +277,30 @@ const handleReset = () => {
                     <div className="buttonHolder">
                         {/* <span><h3></h3></span> */}
                         <button
-                            className="btn"
-                            type="submit"
-                            style={{ backgroundColor: "rgb(10, 150, 250)", color: "white" }}
+                            className="button_03"
+                            onClick={handleCancel}
+                            // style={{ backgroundColor: "rgb(200, 0, 0)", color: "white" }}
                         >
-                            Submit
+                            Back
                         </button>
+                      
                         <button
-                            className="btn btn"
+                            className="button_02"
                             onClick={handleReset}
-                            style={{ backgroundColor: "rgb(0, 150, 0)", color: "white" }}
+                            // style={{ backgroundColor: "rgb(0, 150, 0)", color: "white" }}
                         >
                             Reset
                         </button>
+                       
+
                         <button
-                            className="btn"
-                            onClick={handleCancel}
-                            style={{ backgroundColor: "rgb(200, 0, 0)", color: "white" }}
+                            className="button_01"
+                            type="submit"
+                                            //  onClick={habdleaddpost}
+
+                            // style={{ backgroundColor: "rgb(10, 150, 250)", color: "white" }}
                         >
-                            Cancel
+                            Submit
                         </button>
                     </div>
                 </form>

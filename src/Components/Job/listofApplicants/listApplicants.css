@@ -1,0 +1,17 @@
+.ListApplicants{
+    display: flex;
+    text-align: left;
+    margin: 10px;
+    padding: 20px;
+
+}
+.ListApplicants-card{
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 10px 10px 5px rgb(62, 87, 95);
+    transition: transform 0.3s ease;
+    width: 80%;
+    padding: 20px;
+}

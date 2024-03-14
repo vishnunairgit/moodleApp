@@ -33,13 +33,13 @@
   /* font-size: 18px; */
 }
 .button_01:hover{
-  background-color: rgb(6, 114, 47);
+  background-color: rgb(2, 65, 26);
 }
 
 .button_02 {
   min-width: 100px;
   border-radius: 8px;
-  background-color: rgb(19, 98, 201);
+  background-color: rgb(16, 115, 245);
   color: white;
   padding: 8px 8px;
   margin: 8px 0;
@@ -52,18 +52,18 @@
   background-color: rgb(7, 35, 156);
 }
 
-.button_03 {
+.button_03{
   min-width: 100px;
   border-radius: 8px;
-  background-color: rgb(216, 84, 84);
+  background-color: rgb(211, 28, 28);
   color: white;
   padding: 8px 8px;
-  margin: 10px 0;
+  margin: 8px 0;
   cursor: pointer;
   border: none;
   opacity: 0.9;
 
 }
 .button_03:hover{
-  background-color: rgb(187, 59, 37);
+  background-color: rgb(88, 16, 4);
 }

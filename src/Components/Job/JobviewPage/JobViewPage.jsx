@@ -71,7 +71,7 @@ function JobViewPage() {
 
             <div className="jobRow">
               <div className="jobLabel">
-                <strong><img src={location} alt="" /></strong>
+                <strong>location</strong>
               </div>
               <div className="jobLabel">: {singleJobdata.location} </div>
             </div>
@@ -124,11 +124,12 @@ function JobViewPage() {
               </div>
               <div className="jobLabel">: {singleJobdata?.employmentType} </div>
             </div>
-            <div className="jobRow" onClick={handleApplicants} >
+
+            <div className="jobRow Applicants " onClick={handleApplicants} >
               <div className="jobLabel">
                 <strong>No of Applicants</strong>
               </div>
-              <div className="jobLabel">: 20 </div>
+              <div className="jobLabel">: 2 </div>
             </div>
 
             <div className='Requirements'>

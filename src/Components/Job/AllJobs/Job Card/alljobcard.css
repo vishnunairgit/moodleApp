@@ -27,12 +27,17 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     background-color: #cfccd6; 
-    align-items: center; 
-    justify-items: center; 
+    align-items:center; 
+    justify-items:flex-end; 
+    padding-right: 10px;
 }
+
+
+
 .job button{
     border-radius: 5px;
     min-width: 90px;
+    
 }
 
 .job .Location {

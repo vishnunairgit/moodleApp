@@ -27,17 +27,20 @@ function AlljobCard({ job }) {
             <h4><strong><div>{job.JobTitle}</div></strong></h4>
 
           <p><strong><img src={location} alt="" /></strong> ;{job.location}</p>
-          <p><strong> <img src={student} alt="" /></strong> : 20 </p>
+          <p><strong> <img src={student} alt="" /></strong> : 2 </p>
 
 
 
-
+            <div className='Active'>
             <p>{job.status === 1 ? (
               <button style={{backgroundColor:'green'}} type="button">Active</button>
             ):(
               <button style={{backgroundColor:"red"}} type="button">Inactive</button>
             )}</p>
 
+              
+            </div>
+           
         </div>
 
         <div className='Location'>

@@ -26,14 +26,16 @@
 .companyAdress{
     text-align: left;
 }
-.companyAdress Button{
-    margin-right: 10px;
-    min-width: 150px;
-    /* gap: 5px; */
+.Social_media{
+    display: flex;
+    margin-top: 10px;
 }
-.company-Details-RS button
+.Social_media img{
+    cursor: pointer;
+    margin-right: 10px;
+    
+}
+.company-Details-RS
 {
-    margin-bottom: 10px;
-    min-width: 150px;
-
+    padding-right: 20px;
 }

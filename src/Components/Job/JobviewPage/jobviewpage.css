@@ -78,3 +78,11 @@
 	flex-basis: 190px;
 }
 
+.jobView .Applicants
+{
+    cursor: pointer;
+
+}
+.jobView .Applicants .jobLabel:hover{
+    background-color: rgb(181, 181, 241);
+}

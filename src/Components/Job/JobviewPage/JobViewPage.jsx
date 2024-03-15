@@ -89,13 +89,14 @@ function JobViewPage() {
               </div>
               <div className="jobLabel">: {singleJobdata.Experience} years</div>
             </div>
-
-            <div className="jobRow">
+            <div className="jobRow Applicants " onClick={handleApplicants} >
               <div className="jobLabel">
-                <strong>Openings</strong>
+                <strong>No of Applicants</strong>
               </div>
-              <div className="jobLabel">: {singleJobdata.openings} </div>
+              <div className="jobLabel">: 2 </div>
             </div>
+
+            
 
           </div>
 
@@ -118,6 +119,15 @@ function JobViewPage() {
               <div className="jobLabel">: {singleJobdata?.JobTitle} </div>
             </div>
 
+      
+
+            <div className="jobRow">
+              <div className="jobLabel">
+                <strong>Openings</strong>
+              </div>
+              <div className="jobLabel">: {singleJobdata.openings} </div>
+            </div>
+
             <div className="jobRow">
               <div className="jobLabel">
                 <strong>Employment Type:</strong>
@@ -125,12 +135,7 @@ function JobViewPage() {
               <div className="jobLabel">: {singleJobdata?.employmentType} </div>
             </div>
 
-            <div className="jobRow Applicants " onClick={handleApplicants} >
-              <div className="jobLabel">
-                <strong>No of Applicants</strong>
-              </div>
-              <div className="jobLabel">: 2 </div>
-            </div>
+          
 
             <div className='Requirements'>
               {singleJobdata?.Requirements && (

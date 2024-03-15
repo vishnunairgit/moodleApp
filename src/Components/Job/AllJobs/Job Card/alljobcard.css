@@ -24,12 +24,11 @@
 
 .job .title {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1.5fr 1.5fr 1fr 0.5fr ;
     gap: 20px;
     background-color: #cfccd6; 
     align-items:center; 
-    justify-items:flex-end; 
-    padding-right: 10px;
+    justify-items:flex-start; 
 }
 
 

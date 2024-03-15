@@ -1,41 +1,91 @@
 .mainImg img
 {
-    height: 390px;
+    height: 490px;
     width: 100%;
 }
-.company-Details{
+.employersPage .aboutus
+{
+    padding: 50px 150px;
+}
+.employersPage .aboutus h3,p
+{
+    text-align: justify;
+}
+.Activities
+{
+    padding: 20px;
+}
+.Activities h3
+{
+    text-align: left;
+    padding-left: 30px;
+}
+
+.Activities-main
+{
     display: flex;
-    justify-content: space-between;
-    padding: 20px 0 20px 0;
-    border-bottom: 1px solid black;
-    /* border: 1px solid black; */
+    /* align-items: center; */
+    justify-content: space-evenly;
+}
+
+.first_Activities
+{
+    /* background-color: aqua; */
+    /* border: 2px solid black; */
+    width: 350px;
+    margin: 20px;
 
 }
-.company-Details-LS{
-    display: flex;
+.first_Activities img{
+    width: 350px;
+    max-height: 190px;
+
+    /* height: 200px; */
 }
-.companyLogo{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.Activities h5 {
+    text-align: center;
+    margin-top: 15px;
 }
-.companyLogo img {
-    height: 50px;
-    
+.employersPage .bottomNav{
+    background-color:#DCDCDC;
+    padding: 30px 50px 30px 50px;
+
 }
-.companyAdress{
+
+.employersPage .bottomNav-1{
+
+    border-bottom: 1px solid black;
+    padding-bottom: 30px;
+   
+}
+
+.bottomNav-2{
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 0.5fr;
     text-align: left;
 }
-.Social_media{
-    display: flex;
-    margin-top: 10px;
+
+
+
+
+.bottomNav-2 .first,
+.Second,
+.Third 
+{
+    padding: 20px 40px 10px 0;
 }
-.Social_media img{
+.bottomNav-2 .first .companydetails
+{
+    display: flex;
+    align-items: center;
+}
+
+.bottomNav .first img {
+    height: 50px;
+    border-radius: 50px;
+    margin-bottom: 8px;
+}
+.bottomNav img{
     cursor: pointer;
     margin-right: 10px;
-    
-}
-.company-Details-RS
-{
-    padding-right: 20px;
 }

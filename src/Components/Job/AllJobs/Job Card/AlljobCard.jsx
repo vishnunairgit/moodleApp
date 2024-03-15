@@ -24,7 +24,7 @@ function AlljobCard({ job }) {
       <div className="job-card" onClick={handlejobViewPage} >
 
         <div className='title'>
-            <h4><strong><div>{job.JobTitle}</div></strong></h4>
+            <h5><strong><div>{job.JobTitle}</div></strong></h5>
 
           <p><strong><img src={location} alt="" /></strong> ;{job.location}</p>
           <p><strong> <img src={student} alt="" /></strong> : 2 </p>

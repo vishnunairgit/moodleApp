@@ -8,11 +8,15 @@ import EditCompany from '../../Company Details/edit Company/EditCompany'
 import CompanyView from '../../Company Details/View company/CompanyView'
 import JobViewPage from '../../Job/JobviewPage/JobViewPage'
 import ListApplicants from '../../Job/listofApplicants/ListApplicants'
+import './home.css'
 
 function Home() {
   return (
     <>
-      <Navbar />
+    <div className='homeNavbar' >
+    <Navbar />
+
+    </div>
       {/* <Employers /> */}
       <div>
         <Routes>

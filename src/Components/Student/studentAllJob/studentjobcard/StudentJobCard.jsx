@@ -42,8 +42,8 @@ function StudentJobCard({ studentJobs }) {
                             </div>
 
                             <div className='userdetails'>
-                            <p><strong>companydetails :</strong> {studentJobs.CreatedBy}</p>
-                            <p><strong>companydetails :</strong> {studentJobs.CreatedBy}</p>
+                            <p><strong>company name :</strong> Atto communication </p>
+                            {/* <p><strong>companydetails :</strong> {studentJobs.CreatedBy}</p> */}
 
 
 

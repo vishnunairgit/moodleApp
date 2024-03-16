@@ -156,7 +156,7 @@ function JobViewPage() {
 
 
           {/* <p><strong>Date Posted:</strong> {formatDate(job?.date)}</p> */}
-          <p><strong>Date Posted:</strong> {calculateTimeAgo(singleJobdata?.date)}</p>
+          <p><strong>Date Posted:</strong>{calculateTimeAgo(singleJobdata?.date)}</p>
 
         </div>
       </div>

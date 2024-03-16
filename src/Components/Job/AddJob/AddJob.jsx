@@ -217,7 +217,7 @@ const handleReset = () => {
                             <div className="row">
                                 <div className="col-25">
                                     <label htmlFor="date">
-                                        JOB POST DATE <span className="mandatory-indicator">*</span>
+                                        JOB POST DATE<span className="mandatory-indicator">*</span>
                                     </label>
                                 </div>
                                 <div className="col-75">

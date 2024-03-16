@@ -38,8 +38,8 @@ function Login({ setloginsignup }) {
 
             localStorage.setItem('user', JSON.stringify(parsedToken))
             console.log(parsedToken);
-            // navigate('/home')
-            navigate('/StudentHome')
+            navigate('/home')
+            // navigate('/StudentHome')
 
             alert('Login successful')
           }

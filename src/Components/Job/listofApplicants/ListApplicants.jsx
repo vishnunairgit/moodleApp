@@ -49,6 +49,50 @@ function ListApplicants() {
 
         </div>
       </div>
+      <div className='ListApplicants'>
+        <div className="ListApplicants-card" >
+
+        <div className="jobRow">
+              <div className="jobLabel">
+                <strong>student name</strong>
+              </div>
+              <div className="jobLabel">: maya </div>
+            </div>
+
+            <div className="jobRow">
+              <div className="jobLabel">
+                <strong>student location</strong>
+              </div>
+              <div className="jobLabel">: chennai</div>
+            </div>
+
+            <div className="jobRow">
+              <div className="jobLabel">
+                <strong>student email</strong>
+              </div>
+              <div className="jobLabel">: maya@gmail.com </div>
+            </div>
+
+            <div className="jobRow">
+              <div className="jobLabel">
+                <strong>student number</strong>
+              </div>
+              <div className="jobLabel">:998675434 </div>
+            </div>
+
+            <div className="jobRow">
+              <div className="jobLabel">
+                <strong>student qualification</strong>
+              </div>
+              <div className="jobLabel">: M-tech </div>
+            </div>
+
+
+           
+
+        </div>
+      </div>
+
 
       <div className='ListApplicants'>
         <div className="ListApplicants-card" >

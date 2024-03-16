@@ -17,7 +17,7 @@ function StudentJobFilter({onFilterChange}) {
       <h5><strong>work mode</strong></h5>
       <label><input type="checkbox" name='workmode' onChange={handleCheckboxChange} /> Remote</label>
       <label><input type="checkbox" name='workmode' /> Hybrid</label>
-      <label><input type='checkbox' name='workMode' /> Work From Home</label>
+      {/* <label><input type='checkbox' name='workMode' /> Work From Home</label> */}
       <label><input type="checkbox" name='workmode' /> work from office</label>
     </div>
 

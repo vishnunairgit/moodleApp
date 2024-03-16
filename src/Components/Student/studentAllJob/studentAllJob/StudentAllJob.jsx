@@ -78,7 +78,7 @@ function StudentAllJob() {
         }
     };
 
-    const filteredJobs = studentAllJob.filter(job => filter === null || job.workMode === filter);
+    const filteredJobs = studentAllJob.filter(job => filter === null || job.workMode === 'Remote');
     console.log(filteredJobs,'--------filteredJobs---------filteredJobs-----------');
 
     const handleFilterChange =(isSelected) => {
@@ -86,6 +86,9 @@ function StudentAllJob() {
     }
 
     return (
+        <>
+            <h3><strong> job search</strong></h3>
+    
         <div className='StudentAllJob'>
             <div className='jobfilter'>
             <StudentFilter onFilterChange={handleFilterChange} />
@@ -94,6 +97,7 @@ function StudentAllJob() {
                 {filteredJobs.map((job) => (<StudentJobCard key={job.id} studentJobs={job} />))}
             </div>
         </div>
+        </>
     );
 }
 

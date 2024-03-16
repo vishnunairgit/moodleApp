@@ -7,6 +7,7 @@ function EditCompany() {
     const  navigate =useNavigate()
 
     const [companyDetails, setcompanyDetails] = useState([])
+    const [editcompanyDetails, seteditcompanyDetails] = useState([ ])
   
     useEffect(()=>{
   
@@ -23,18 +24,20 @@ function EditCompany() {
         const response = await AxiosInstance.get('/admin/GetUser' , {params:{userId}})
         debugger
         setcompanyDetails(response.data);
+        seteditcompanyDetails(response.data)
         console.log(setcompanyDetails, '------------------setSingleuser--------------');
       } catch (error) {
         console.log(error, '-----------error-----------');
         console.error('Error fetching data:', error)
       }
     };
-  
-    // ------------edit company----------------------
-  
-    const handleedit = ()=>{
-      navigate('/editCompany')
+
+    const handleCancel = ( )=>{
+      navigate(-1)
     }
+  
+
+  
   
   
     return (
@@ -60,7 +63,7 @@ function EditCompany() {
                       id="CompanyName"
                       name="CompanyName"
                       placeholder="Company Name.."
-                      value={companyDetails?.CompanyName}
+                      value={editcompanyDetails?.CompanyName}
                       required
                     />
                     <span> </span>
@@ -79,7 +82,7 @@ function EditCompany() {
                       id="registration-Number"
                       name="registrationNumber"
                       placeholder="RegistrationNumber.."
-                      value={companyDetails?.registrationNumber}
+                      value={editcompanyDetails?.registrationNumber}
                       required
                     />
                   </div>
@@ -94,7 +97,7 @@ function EditCompany() {
                       id="email"
                       name="email"
                       placeholder="email.."
-                      value={companyDetails?.email}
+                      value={editcompanyDetails?.email}
                     />
                   </div>
                 </div>
@@ -109,7 +112,7 @@ function EditCompany() {
                       id="phonenumber"
                       name="phonenumber"
                       placeholder="email.."
-                      value={companyDetails?.phonenumber}
+                      value={editcompanyDetails?.phonenumber}
   
                     />
                   </div>
@@ -261,25 +264,26 @@ function EditCompany() {
             {/* {error && <ErrorMessage message={error} />} */}
             <div className="buttonHolder">
               {/* <span><h3></h3></span> */}
-              {/* <button
-                className="button-17"
+              <button
+                className="button_01"
                 type="submit"
                 style={{ backgroundColor: "rgb(10, 150, 250)", color: "white" }}
-                onClick={handleedit}
+                // onClick={handlsubmit}
               >
-                Edit
-              </button> */}
+                submit
+              </button>
 
-              <button
+              {/* <button
                 className="button-17"
                 // onClick={handleReset}
                 style={{ backgroundColor: "rgb(0, 150, 0)", color: "white" }}
               >
                 Reset
-              </button>
+              </button> */}
+
               <button
-                className="button-17"
-                // onClick={handleCancel}
+                className="button_03"
+                onClick={handleCancel}
                 style={{ backgroundColor: "rgb(200, 0, 0)", color: "white" }}
               >
                 Cancel

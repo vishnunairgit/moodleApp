@@ -38,7 +38,9 @@ function Login({ setloginsignup }) {
 
             localStorage.setItem('user', JSON.stringify(parsedToken))
             console.log(parsedToken);
-            navigate('/home')
+            // navigate('/home')
+            navigate('/StudentHome')
+
             alert('Login successful')
           }
           if (res.data.message === "Invalid user credentials") {
@@ -172,7 +174,7 @@ function Login({ setloginsignup }) {
           <button className='button_02' type="button" onClick={handleUserLogin}
           >Log In</button>
         </div>
-        <a href="">Lost password</a>
+        <div href="">Lost password</div>
 
         <div className='border'></div>
 

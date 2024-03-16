@@ -1,48 +1,29 @@
-import React, { useEffect, useState } from 'react'
-import './navbar.css';
-import logo from '../../Assets/net.america-1.png';
-import notification from '../../Assets/icons8-notification-24.png'
-import user from '../../Assets/icons8-user-24.png'
-// import hamburger from '../../Assets/icons8-hamburger-button-32.png';
+import React from 'react'
+import logo from '../../../Assets/net.america-1.png';
+import notification from '../../../Assets/icons8-notification-24.png'
+import user from '../../../Assets/icons8-user-24.png'
 import { useNavigate } from 'react-router-dom';
 
+function StudentNav() {
+    const navigate = useNavigate()
 
-function Navbar() {
 
-  const navigate = useNavigate()
-
-  const handleHome = () => {
-    navigate('/home')
-  }
-
-  const handleAccount = () => {
-    navigate('/companyDetails');
-  };
-  const handleJob = () => {
-    navigate('/addJob')
-  }
-
-  const handleAlljob = () =>{
-    navigate('/alljob')
-  }
-
-  const handleLogout = () => {
+const handleLogout = ()=>{
     localStorage.clear()
-    navigate('/loginPage')
-  }
-
-
-
+    navigate('/LoginPage')
+}
 
   return (
     <div>
+
+<div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <div className="navbar-brand landingLogo" href="#"></div>
           <div className='landingLogo navbar-brand '>
             {/* <div className='company_name' onClick={handleHome} >net.America</div> */}
             <div>
-              <img onClick={handleHome} src={logo} alt="" />
+              <img src={logo} alt="" />
             </div>
           </div>
 
@@ -61,29 +42,22 @@ function Navbar() {
                 <a className="nav-link" href="#" onClick={handleJob}>Post job</a>
               </li> */}
 
-              <li className="nav-item dropdown">
+              {/* <li className="nav-item dropdown">
                 <div className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   JOBS
                 </div>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><div className="dropdown-item" href="#" onClick={handleJob}>POST JOB</div></li>
-                  <li><div className="dropdown-item" href="#" onClick={handleAlljob}>LIST JOB</div></li>
-                  <li><hr className="dropdown-divider" /></li>
-                  {/* <li><a className="dropdown-item" href="#">Something else here</a></li> */}
+                  <li><div className="dropdown-item" href="#">POST JOB</div></li>
+                  <li><div className="dropdown-item" href="#" >LIST JOB</div></li>
                 </ul>
-              </li>
-
-
-              {/* <li className="nav-item">
-                <a className="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
               </li> */}
+
+
+              
 
             </ul>
 
-            {/* <form className="d-flex">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-              <button className="btn btn-outline-success" type="submit">Search</button>
-            </form> */}
+          
 
 
             <div className="btn-group btn-group-alert">
@@ -106,7 +80,7 @@ function Navbar() {
                 </button>
       
                 <ul className="dropdown-menu user-dropdownmenu bg-light">
-                  <button className='button_01' type="button" onClick={handleAccount}>USER</button>
+                  {/* <button className='button_01' type="button" onClick={handleAccount}>USER</button> */}
                   <button className='button_02' type="button" onClick={handleLogout}>LOG OUT</button>
                 </ul>
               </div>
@@ -116,7 +90,11 @@ function Navbar() {
         </div>
       </nav>
     </div>
+
+
+
+    </div>
   )
 }
 
-export default Navbar
+export default StudentNav

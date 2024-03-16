@@ -1,0 +1,12 @@
+.StudentAllJob{
+    display: flex;
+    padding: 10px;
+}
+.StudentAllJob .jobfilter
+{
+    width: 25%;
+}
+.StudentAllJob .JobCard
+{
+    width: 75%;
+}

@@ -69,7 +69,7 @@ function Employers() {
 
         </div>
 
-        <div className='Activities'>
+        {/* <div className='Activities'>
           <h3>Activities</h3>
           <div className='Activities-main'>
 
@@ -116,18 +116,13 @@ function Employers() {
             </div>
 
           </div>
-        </div>
+        </div> */}
 
 
 
         <div className='bottomNav'>
 
-          <div className='bottomNav-1'>
-              <img src={linkedin} alt="" title='linkedin' onClick={handlelinkedin} />
-              <img src={website} alt="" title='website' onClick={handlewebsite} />
-              <img src={facebook}  title='facebook' onClick={handlelfacebook} alt="" />
-
-          </div>
+       
         
           <div className='bottomNav-2'>
 
@@ -149,7 +144,7 @@ function Employers() {
             <div className='Second'>
 
               <h5><strong>Address</strong> </h5>
-                <div><img src={locationLogo} alt="" />: Atto Communication Pvt.Ltd</div>
+                <div>Atto Communication Pvt.Ltd</div>
                 47/10, 4th Floor,Krishna Mansion, 
                 9th Cross, JP Nagar 1st Phase, 
                 Bengaluru, Karnataka 560078
@@ -163,6 +158,13 @@ function Employers() {
 
               </div>
             </div>
+
+          </div>
+
+          <div className='bottomNav-1'>
+              <img src={linkedin} alt="" title='linkedin' onClick={handlelinkedin} />
+              <img src={website} alt="" title='website' onClick={handlewebsite} />
+              <img src={facebook}  title='facebook' onClick={handlelfacebook} alt="" />
 
           </div>
 

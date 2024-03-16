@@ -1,0 +1,74 @@
+.studentjob{
+    /* display: flex; */
+}
+
+.stujob{
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    margin: 15px;
+}
+.stujob .job-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 10px 10px 5px rgb(62, 87, 95);
+    transition: transform 0.3s ease;
+
+    
+    
+}
+
+.stujob .job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 9px 12px rgba(12, 2, 41, 0.1);
+}
+
+
+
+.stujob .title {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr ;
+    text-align: left;
+    gap: 20px;
+    background-color: #cfccd6; 
+    align-items:center; 
+    justify-items:flex-start; 
+}
+
+
+
+/* .stujob button{
+    border-radius: 5px;
+    min-width: 90px;
+    
+} */
+
+.stujob .Location {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px; 
+    align-items: center; 
+    justify-items: center; 
+  }
+  
+
+.stujob p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.stujob strong {
+    color: #222;
+}
+.stujob .userdetails
+{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 20px;
+
+}
+
+

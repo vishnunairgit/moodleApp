@@ -184,9 +184,9 @@ const handieUserSignUp=()=>{
 
             <p>
               By creating an account, you agree to our{" "}
-              <a href="#" style={{ color: "dodgerblue" }}>
+              <div href="#" style={{ color: "dodgerblue" }}>
                 Terms & Privacy
-              </a>
+              </div>
             </p>
 
             <div className="clearfix">

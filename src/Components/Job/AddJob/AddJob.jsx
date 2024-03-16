@@ -57,7 +57,7 @@ function AddJob() {
     }
 // ---------------------------Cancel button---------------------------
 const handleCancel = ()=>{
-    navigate(-2)
+    navigate(-1)
 
 }
 
@@ -190,10 +190,11 @@ const handleReset = () => {
                                         required
                                     >
                                         <option value="">Select Employment Type</option>
-                                        <option value="Full Time">Full Time</option>
-                                        <option value="Part Time">Part Time</option>
-                                        <option value="Permanent">Permanent</option>
+                                        <option value="Remote">Remote</option>
+                                        <option value="Hybrid">Hybrid</option>
                                         <option value="Work From Home">Work From Home</option>
+                                        <option value="Work From Office">Work From Office</option>
+
                                     </select>
                                 </div>
                             </div>

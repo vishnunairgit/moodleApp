@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 function CompanyView() {
+  
     const  navigate =useNavigate()
 
     const [companyDetails, setcompanyDetails] = useState([])
@@ -231,35 +232,7 @@ function CompanyView() {
               <div className="rightSide-container">
                 <div className="rightSide-container-2">
   
-                  {/* <div className="text">
-                    <h5>UPLOAD Logo</h5>
-                  </div>
-                  <div className="fileupload">
-                    <label htmlFor="imageUpload">SELECT AN IMAGES</label>
-                    <input
-                      type="file"
-                      id="imageUpload"
-                      name="imageUpload"
-                      accept="image/*"
-                    />
-                    <br />
-  
-                  </div>
-                  <div className="text">
-                    <h5>UPLOAD FILES</h5>
-                  </div>
-                  <div className="fileupload">
-                    <label htmlFor="imageUpload">SELECT AN IMAGES</label>
-                    <input
-                      type="file"
-                      id="imageUpload"
-                      name="imageUpload"
-                      accept="image/*"
-                    />
-                    <br />
-                  </div>
-   */}
-  
+                 
   
   
                 </div>

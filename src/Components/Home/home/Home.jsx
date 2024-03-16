@@ -24,7 +24,7 @@ function Home() {
         <Route path="/companyDetails" element={<CompanyView />} />
         <Route path="/addJob" element={<AddJob /> } />
         <Route path='/alljob' element={<Alljob />} />
-        <Route path="/editCompany/:mailID"  element={<EditCompany/>} />
+        <Route path="/editCompany/:id"  element={<EditCompany/>} />
         <Route path='/jobViewPage/:id' element={<JobViewPage />} />
         <Route path='/listApplicants' element={<ListApplicants/>}/>
         

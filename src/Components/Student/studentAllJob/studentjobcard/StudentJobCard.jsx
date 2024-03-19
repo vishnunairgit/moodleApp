@@ -43,6 +43,8 @@ function StudentJobCard({ studentJobs }) {
 
                             <div className='userdetails'>
                             <p><strong>company name :</strong> Atto communication </p>
+                            <p><strong>employmentType :</strong> {studentJobs.employmentType} </p>
+
                             {/* <p><strong>companydetails :</strong> {studentJobs.CreatedBy}</p> */}
 
 

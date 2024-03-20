@@ -1,6 +1,5 @@
-.navbar
+/* .navbar
 {
-   /* background-color:  #DCDCDC	 */
 }
 .navbar .company_name{
     margin-left: 20px;
@@ -15,9 +14,7 @@
     border-radius: 0px;
 }
 .user-dropdown .user-dropdownmenu[data-bs-popper] {
-    /* top: 100%; */
     left: -120px !important;
-    /* margin-top: var(--bs-dropdown-spacer); */
     top: 60px !important;
 }
 .navbar .dropdown-menu {
@@ -26,4 +23,76 @@
 
 .user-dropdown {
     margin-right: 20px;
+} */
+
+/* Add to or adjust your existing CSS */
+.navbarHome {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #dcd9d9;
+  color: black;
+
+  padding: 0.5rem 1rem;
 }
+.navbarHome .navbar-brand img{
+  width: 100px;
+}
+.navbarHome .nav-links button
+{
+  color: black;
+}
+
+.navbarHome .nav-icons {
+  display: flex;
+  align-items: center;
+}
+
+.navbarHome .nav-icons .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.navbarHome .dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0; /* Align dropdown to the right side of its parent */
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  color: black;
+}
+
+.navbarHome .dropdown-content div {
+  color: black;
+  padding: 10px 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.navbarHome .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.navbarHome .nav-links, .nav-icons {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbarHome .nav-links li, .nav-icons a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: white;
+}
+
+.navbarHome .dropbtn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+

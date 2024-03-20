@@ -1,5 +1,7 @@
 import React from 'react'
-import Navbar from '../navBar/Navbar'
+// import Navbar from '../navBar/Navbar'
+import Test from '../navBar/Test'
+
 import { Route, Routes } from 'react-router-dom'
 import Employers from '../../EmployersPage/Employers'
 import AddJob from '../../Job/AddJob/AddJob'
@@ -14,7 +16,9 @@ function Home() {
   return (
     <>
     <div className='homeNavbar' >
-    <Navbar />
+    {/* <Navbar /> */}
+    <Test />
+
 
     </div>
       {/* <Employers /> */}

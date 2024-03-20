@@ -137,7 +137,7 @@ function CompanyView() {
                       id="Address"
                       name="Address"
                       placeholder="Address.."
-                   
+                      value={companyDetails?.Address}
                     />
                   </div>
                 </div>
@@ -155,7 +155,8 @@ function CompanyView() {
                       id="website"
                       name="website"
                       placeholder="website.."
-                      
+                      value={companyDetails?.website}
+
                       required
                     />
                   </div>
@@ -173,7 +174,8 @@ function CompanyView() {
                       id="LinkedIn "
                       name="LinkedIn "
                       placeholder="LinkedIn .."
-                     
+                      value={companyDetails?.LinkedIn}
+
                       required
                     />
                   </div>
@@ -189,6 +191,8 @@ function CompanyView() {
                       id="Industry"
                       name="Industry"
                       placeholder="Industry.."
+                      value={companyDetails?.Industry}
+
                     
                     />
                   </div>
@@ -204,6 +208,8 @@ function CompanyView() {
                       id="Incorporationdate"
                       name="Incorporationdate"
                       placeholder="ncorporation date.."
+                      value={companyDetails?.Incorporationdate}
+
                    
                     />
                   </div>
@@ -220,6 +226,7 @@ function CompanyView() {
                       id="about"
                       name="about"
                       placeholder="about the comapny..."
+                      value={companyDetails?.about}
                    
                     />
                   </div>

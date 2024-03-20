@@ -38,8 +38,8 @@ function Login({ setloginsignup }) {
 
             localStorage.setItem('user', JSON.stringify(parsedToken))
             console.log(parsedToken);
-            // navigate('/home')
-            navigate('/StudentHome')
+            navigate('/home')
+            // navigate('/StudentHome')
 
             alert('Login successful')
           }
@@ -78,67 +78,6 @@ function Login({ setloginsignup }) {
 
 
   return (
-    // <div>
-
-    //   <div className='loginContainers'>
-
-    //     {/* <div className='loginContainers' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}> */}
-    //     <div className='login' style={{ border: '1px solid #ccc' }}>
-    //       <div className="container">
-    //         <h1 className='m-3'>Login</h1>
-
-    //         <label htmlFor="email"><b>Email</b></label>
-    //         <input type="text"
-    //           placeholder="Enter Email"
-    //           name="email"
-    //           value={LoginUserData.email}
-    //           required
-    //           // onChange={loginData}
-    //           onChange={(e)=> {setLoginUserData({ ...LoginUserData, [e.target.name]: e.target.value })}
-    //         }
-
-    //         />
-
-
-    //         <label htmlFor="psw"><b>Password</b></label>
-    //         <div className='password-container' >
-    //           <input
-    //             // type={showPassword ? 'text' : 'password'}
-    //             // type={ showPwd ? "text" : "password"}
-    //             type='password'
-    //             placeholder="Enter Password"
-    //             name="password"
-    //             value={LoginUserData.password}
-    //             required
-    //             onChange={(e)=> {setLoginUserData({ ...LoginUserData, [e.target.name]: e.target.value })}}
-
-    //             // onChange={loginData}
-    //             />
-
-
-    //         </div>
-
-    //         {/* </div> */}
-
-    //         <div className="clearfix">
-    //           {/* <button type="button" className="cancelbtn">Cancel</button> */}
-    //           <button type="submit"
-    //             className="button_01"
-    //             onClick={handleUserLogin}
-    //           >Log In</button>
-    //         </div>
-
-    //         <div>
-    //           <div className='donthaveaccount'>
-    //             <span>Don't have an account? <a onClick={() => handlelogin()} style={{ color: 'blue', fontWeight: '600' }}>Sign up</a> </span>
-
-    //           </div>
-
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
 
     <div className='login'>
       <div className='main'>
@@ -155,9 +94,6 @@ function Login({ setloginsignup }) {
             onChange={(e) => { setLoginUserData({ ...LoginUserData, [e.target.name]: e.target.value }) }}
 
           />
-
-          {/* <br /> */}
-
 
           <input
             type='password'

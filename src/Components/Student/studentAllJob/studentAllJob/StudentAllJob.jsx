@@ -50,10 +50,15 @@ function StudentAllJob() {
     
         <div className='StudentAllJob'>
             <div className='jobfilter'>
+               
             <StudentFilter onFilterChange={handleFilterChange} />
             </div>
             <div className='JobCard'>
-                {filteredJobs.map((job) => (<StudentJobCard key={job.id} studentJobs={job} />))}
+                {filteredJobs.length > 0 ? (
+                    filteredJobs.map((job) => (<StudentJobCard key={job.id} studentJobs={job} />))
+                ) : (
+                    <h4>No job found</h4> 
+                )}
             </div>
         </div>
         </>

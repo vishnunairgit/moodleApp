@@ -12,8 +12,8 @@ function StudentJobFilter({ onFilterChange }) {
     });
     const handleCheckboxChange = (e) => {
       const { name, value, checked } = e.target;
-      console.log(`Name: ${name}, Value: ${value}, Checked: ${checked}`); // Debug log
-      console.log(filters); // Debug log to see current filters state
+      // console.log(`Name: ${name}, Value: ${value}, Checked: ${checked}`); // Debug log
+      // console.log(filters); // Debug log to see current filters state
   
       // Ensure updatedFilters[name] is initialized if it doesn't already exist
       const updatedFilters = { ...filters, [name]: filters[name] || [] };
@@ -32,14 +32,8 @@ function StudentJobFilter({ onFilterChange }) {
       onFilterChange(updatedFilters);
   };
 
-//     if (e.target.checked) {
-//         // Pass the work mode directly to the callback
-//         onFilterChange(e.target.value); // Assuming each checkbox has a value attribute
-//     } else {
-//         // Reset filter if no checkbox is selected
-//         onFilterChange(null);
-//     }
-// }
+
+
 
   return (
 
@@ -47,6 +41,7 @@ function StudentJobFilter({ onFilterChange }) {
 
     <div className='work-mode'>  
       <h5><strong>work mode</strong></h5>
+
       <label><input type="checkbox" name='workMode' value={'Remote'} onChange={handleCheckboxChange} /> Remote</label>
       <label><input type="checkbox" name='workMode' value={'Hybrid'} onChange={handleCheckboxChange} /> Hybrid</label>
       <label><input type="checkbox" name='workMode' value={'work from office'} onChange={handleCheckboxChange} /> work from office</label>

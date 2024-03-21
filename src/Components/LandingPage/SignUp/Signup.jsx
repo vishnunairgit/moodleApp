@@ -12,6 +12,12 @@ function Signup({ setloginsignup }) {
         registrationNumber: '',
         email: '',
         phonenumber: '',
+        Address:'',
+        website:'',
+        LinkedIn:'',
+        Industry:'',
+        Incorporationdate:'',
+        about:'',
         password: '',
         confirmPassword: "",
     })
@@ -22,6 +28,8 @@ function Signup({ setloginsignup }) {
     }
 
     const handieUserSignUp = () => {
+
+        
         if (signupData.CompanyName.length < 2) {
             alert('Please enter a company name')
             return;
@@ -60,6 +68,7 @@ function Signup({ setloginsignup }) {
                     }
                     if (res.data.message === 'email is already exist') {
                         alert('email is already exist')
+
                     }
                 })
         } catch (error) {

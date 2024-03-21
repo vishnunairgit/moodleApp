@@ -10,7 +10,11 @@ import EditCompany from '../../Company Details/edit Company/EditCompany'
 import CompanyView from '../../Company Details/View company/CompanyView'
 import JobViewPage from '../../Job/JobviewPage/JobViewPage'
 import ListApplicants from '../../Job/listofApplicants/ListApplicants'
+import Editjob from '../../Job/editJob/Editjob'
+
+
 import './home.css'
+
 
 function Home() {
   return (
@@ -27,11 +31,11 @@ function Home() {
         <Route path="/home" element={<Employers /> } />
         <Route path="/companyDetails" element={<CompanyView />} />
         <Route path="/addJob" element={<AddJob /> } />
-        <Route path='/alljob' element={<Alljob />} />
+        <Route path="/editjob/:id" element={<Editjob /> } />
+        <Route path="/alljob" element={<Alljob />} />
         <Route path="/editCompany/:id"  element={<EditCompany/>} />
-        <Route path='/jobViewPage/:id' element={<JobViewPage />} />
-        <Route path='/listApplicants' element={<ListApplicants/>}/>
-        
+        <Route path="/jobViewPage/:id" element={<JobViewPage />} />
+        <Route path="/listApplicants" element={<ListApplicants/>}/>
         </Routes>
       </div>
     </>

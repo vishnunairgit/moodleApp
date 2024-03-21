@@ -74,13 +74,13 @@ const Navbar = () => {
             </div>
           )}
         </div>
+
         <div className="dropdown">
           <div href="#user" onClick={toggleUserDropdown}><img src={user} alt="" /></div>
           {isUserDropdownOpen && (
             <div className="dropdown-content">
-              <div href="#profile" onClick={handleAccount}>Profile</div>
-              {/* <div href="#settings">Settings</div> */}
-              <div href="#logout" onClick={handleLogout}>Logout</div>
+              <div className='userlogo'  onClick={handleAccount}>Profile</div>
+              <div className='notificationlogo' onClick={handleLogout}>Logout</div>
             </div>
           )}
         </div>

@@ -192,7 +192,6 @@ const handleReset = () => {
                                         <option value="">Select Employment Type</option>
                                         <option value="Remote">Remote</option>
                                         <option value="Hybrid">Hybrid</option>
-                                        <option value="Work From Home">Work From Home</option>
                                         <option value="Work From Office">Work From Office</option>
 
                                     </select>

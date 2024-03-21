@@ -96,3 +96,7 @@
   cursor: pointer;
 }
 
+.navbarHome .dropdown{
+  padding-right: 10px;
+
+}  

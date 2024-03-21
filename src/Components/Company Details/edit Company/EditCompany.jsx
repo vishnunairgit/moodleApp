@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import AxiosInstance from '../../../config/AxiosInstance'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Alert } from 'bootstrap'
 
 
 function EditCompany() {
+  const { id } = useParams();
+
   const navigate = useNavigate()
 
   // const [companyDetails, setcompanyDetails] = useState([])
@@ -35,10 +36,10 @@ function EditCompany() {
 
   const GetUserData = async () => {
 
-    const userId = JSON.parse(localStorage.getItem("user")).userId
+    // const userId = JSON.parse(localStorage.getItem("user")).userId
 
     try {
-      const response = await AxiosInstance.get('/admin/GetUser', { params: { userId } })
+      const response = await AxiosInstance.get('/admin/GetUser',{params:{ userId : id}})
       // debugger
       seteditcompanydata(response.data)
     } catch (error) {
@@ -64,40 +65,37 @@ function EditCompany() {
   }
 
   const handleeditSubmit = async () => {
-
     let fileData = new FormData();
-    fileData.append('CompanyName', EditcompanyFiles?.CompanyName);
-    fileData.append('registrationNumber', EditcompanyFiles?.registrationNumber);
-    fileData.append('email', EditcompanyFiles?.email);
-    fileData.append('phonenumber', EditcompanyFiles?.phonenumber);
-    fileData.append('Address', EditcompanyFiles?.Address);
-    fileData.append('website', EditcompanyFiles?.website);
-    fileData.append('LinkedIn', EditcompanyFiles?.LinkedIn);
-    fileData.append('Industry', EditcompanyFiles?.Industry);
-    fileData.append('Incorporationdate', EditcompanyFiles?.Incorporationdate);
-    fileData.append('about', EditcompanyFiles?.about);
-    fileData.append('password', EditcompanyFiles?.password);
 
-    fileData.append('confirmPassword', EditcompanyFiles?.confirmPassword);
-
-
-
-
-      fileData.append('logoUpload', EditcompanyFiles?.logoUpload);
-      fileData.append('imageUpload', EditcompanyFiles?.imageUpload);
-  
-    try {
-      debugger;
-      const response = await AxiosInstance.post('admin/GetEditcompany', fileData, {
-        // params: editcompanyData, // This typically wouldn't work as expected with a multipart/form-data request.
-        headers: { 'Content-Type': "multipart/form-data" }, // You might not need to manually set this header when using FormData with Axios.
-      });
-      debugger;
-      console.log(response.data);
-    } catch (error) {
-      console.error('Error submitting form:', error);
+    // Append all your form data
+    fileData.append('CompanyName', editcompanyData.CompanyName);
+    fileData.append('registrationNumber', editcompanyData.registrationNumber);
+    fileData.append('email', editcompanyData.email);
+    fileData.append('phonenumber', editcompanyData.phonenumber);
+    fileData.append('Address', editcompanyData.Address);
+    fileData.append('website', editcompanyData.website);
+    fileData.append('LinkedIn', editcompanyData.LinkedIn); // Verify field name correctness
+    fileData.append('Industry', editcompanyData.Industry);
+    fileData.append('Incorporationdate', editcompanyData.Incorporationdate);
+    fileData.append('about', editcompanyData.about);
+    fileData.append('password', editcompanyData.password); // Ensure secure handling
+    fileData.append('confirmPassword', editcompanyData.confirmPassword); // Ensure validation before submission
+    if (EditcompanyFiles.logoUpload) {
+        fileData.append('logoUpload', EditcompanyFiles.logoUpload);
     }
-  }
+    if (EditcompanyFiles.imageUpload) {
+        fileData.append('imageUpload', EditcompanyFiles.imageUpload);
+    }
+
+    try {
+        const response = await AxiosInstance.post(`/admin/EditCompany/${id}`, fileData);
+        console.log(response.data);
+    } catch (error) {
+        console.error('Error submitting form:', error);
+    }
+}
+
+
 
   const handleCancel = () => {
     navigate(-1)
@@ -249,7 +247,6 @@ function EditCompany() {
                     placeholder="LinkedIn .."
                     value={editcompanyData?.LinkedIn}
                     onChange={editdata}
-
                     required
                   />
                 </div>
@@ -281,7 +278,7 @@ function EditCompany() {
                     type="date"
                     id="Incorporationdate"
                     name="Incorporationdate"
-                    placeholder="ncorporation date.."
+                    placeholder="Incorporationdate.."
                     value={editcompanyData?.Incorporationdate}
                     onChange={editdata}
 

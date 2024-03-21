@@ -86,3 +86,10 @@
 .jobView .Applicants .jobLabel:hover{
     background-color: rgb(181, 181, 241);
 }
+.jobView .date, .bottum_button
+{
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+}
+

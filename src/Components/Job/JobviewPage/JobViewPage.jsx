@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import AxiosInstance from '../../../config/AxiosInstance'
 import { useParams } from 'react-router-dom';
-import { calculateTimeAgo } from '../../../helpers/helpers';
+import { calculateTimeAgo, formatDate } from '../../../helpers/helpers';
 import location from "../../Assets/icons8-location-24.png"
 import { useNavigate } from 'react-router-dom'
 
@@ -10,10 +10,11 @@ import './jobviewpage.css'
 
 function JobViewPage() {
 
-  const  navigate =useNavigate()
-
-
+  const navigate = useNavigate()
   const { id } = useParams();
+
+
+
 
   const [singleJobdata, setsingleJobdata] = useState([])
 
@@ -29,21 +30,25 @@ function JobViewPage() {
       const response = await AxiosInstance.get('/admin/getSingleJobdata', { params: { jobId: id } })
       debugger
       setsingleJobdata(response.data)
-
       console.log(response.data, '----------singleJobdata------------');
-
-
 
     } catch (error) {
       console.log(error);
-
-
     }
 
   }
 
-  const handleApplicants = ()=>{
+  const handleApplicants = () => {
     navigate('/listApplicants')
+  }
+
+
+  const handleeditJob = () => {
+    navigate(`/editjob/${id}`);
+  }
+
+  const handleback = ()=>{
+    navigate(-1)
   }
 
 
@@ -58,16 +63,26 @@ function JobViewPage() {
             <div className='job-title'>
               <div>{singleJobdata.JobTitle}</div>
             </div>
-            <div  >
-              <p>{singleJobdata.status === 1 ? (
+
+            <div className='Active'>
+              <p>{singleJobdata.status === "active" ? (
                 <button style={{ backgroundColor: 'green' }} type="button">Active</button>
               ) : (
                 <button style={{ backgroundColor: "red" }} type="button">Inactive</button>
               )}</p>
             </div>
+
+
+
+
           </div>
 
+
+
           <div className='Job-Description'>
+            <div>
+
+            </div>
 
             <div className="jobRow">
               <div className="jobLabel">
@@ -96,7 +111,7 @@ function JobViewPage() {
               <div className="jobLabel">: 2 </div>
             </div>
 
-            
+
 
           </div>
 
@@ -119,7 +134,7 @@ function JobViewPage() {
               <div className="jobLabel">: {singleJobdata?.JobTitle} </div>
             </div>
 
-      
+
 
             <div className="jobRow">
               <div className="jobLabel">
@@ -135,15 +150,15 @@ function JobViewPage() {
               <div className="jobLabel">: {singleJobdata?.employmentType} </div>
             </div>
 
-          
+
 
             <div className='Requirements'>
               {singleJobdata?.Requirements && (
-              <div >
-              <strong >Requirements:</strong>
+                <div >
+                  <strong >Requirements:</strong>
                   <ul>
                     {singleJobdata?.Requirements?.split('\n').map((point, index) => (
-                      <li  key={index}>{point}</li>
+                      <li key={index}>{point}</li>
                     ))}
                   </ul>
                 </div>
@@ -152,11 +167,19 @@ function JobViewPage() {
 
           </div>
 
+          <div className='date' >
+            <div><strong>Date Posted:</strong>{formatDate(singleJobdata?.date)}</div>
+            <div><strong>Date Posted:</strong>{calculateTimeAgo(singleJobdata?.date)}</div>
+
+          </div>
+
+          <div className='bottum_button'>
+          <button className='button_01' type="button" onClick={handleback}>Back</button>
+          <button className='button_02' type="button" onClick={handleeditJob}>Edit</button>
+
+          </div>
 
 
-
-          {/* <p><strong>Date Posted:</strong> {formatDate(job?.date)}</p> */}
-          <p><strong>Date Posted:</strong>{calculateTimeAgo(singleJobdata?.date)}</p>
 
         </div>
       </div>

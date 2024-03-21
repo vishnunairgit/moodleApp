@@ -2,14 +2,18 @@ import React, { useEffect, useState } from 'react'
 import './companydetails.css'
 import AxiosInstance from '../../../config/AxiosInstance'
 import { useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom';
 
 
 
 function CompanyView() {
-  
-    const  navigate =useNavigate()
+  const { id } = useParams();
 
-    const [companyDetails, setcompanyDetails] = useState([])
+  const  navigate =useNavigate()
+
+
+
+    const [companyDetails, setcompanyDetails] = useState({ })
   
     useEffect(()=>{
   
@@ -35,10 +39,18 @@ function CompanyView() {
   
     // ------------edit company----------------------
   
-    const mailID = companyDetails.email
+    // const id = companyDetails._id
+
+
+    console.log(companyDetails, '------------------companyDetails--------------');
+
     
-    const handleedit = ()=>{
-      navigate(`/editCompany/${mailID}`)
+    const handleedit = () => {
+      if (companyDetails._id) {
+        navigate(`/editCompany/${companyDetails._id}`)
+      } else {
+        console.error("No company ID available for editing");
+      }
     }
 
     const handleCancel = () =>{

@@ -61,7 +61,7 @@
 
 .bottomNav-2{
     display: grid;
-    grid-template-columns: 2fr 1.5fr 0.5fr;
+    grid-template-columns: 2fr 1.5fr 0.7fr;
     text-align: left;
 }
 
@@ -69,11 +69,17 @@
 
 
 .bottomNav-2 .first,
-.Second,
-.Third 
+.Second
 {
     padding: 20px 40px 10px 0;
 }
+.bottomNav-2 .Third{
+    padding: 20px 0px 10px 0;
+
+}
+
+
+
 .bottomNav-2 .first .companydetails
 {
     display: flex;

@@ -129,15 +129,30 @@ textarea {
 .Account .fileupload input:hover {
 	background-color: rgb(203, 205, 209);
 }
+.Account .files
+{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+
+}
+.Account .files .logo {
+	max-width: 50px;
+
+}
+.Account .files .image {
+	max-width: 250px;
+
+}
+
+
 /* buttonHolder */
 .Account .buttonHolder {
 	display: flex;
 	justify-content: space-around;
 	background-color: #ffffff;
 }
-.Account .button-17 {
-	width: 10%;
-}
+
 .Account .mandatory-indicator {
 	color: red;
 	margin-left: 5px;

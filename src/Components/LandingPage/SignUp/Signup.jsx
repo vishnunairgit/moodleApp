@@ -18,6 +18,8 @@ function Signup({ setloginsignup }) {
         Industry:'',
         Incorporationdate:'',
         about:'',
+        logoUpload: '',
+        imageUpload:'',
         password: '',
         confirmPassword: "",
     })

@@ -3,8 +3,17 @@ import student from "../../../Assets/icons8-student-24.png"
 import location from "../../../Assets/icons8-location-24.png"
 import { calculateTimeAgo } from '../../../../helpers/helpers'
 import './studentjobcard.css'
+import { useNavigate } from 'react-router-dom'
 
 function StudentJobCard({ studentJobs }) {
+
+    const navigate = useNavigate()
+
+
+
+    const handleView = ()=>{
+        navigate(`/StudentJobViewPage/${studentJobs?._id}`)
+    }
 
 
 
@@ -12,24 +21,12 @@ function StudentJobCard({ studentJobs }) {
         <>
                 <div>
                     <div className='stujob'>
-                        <div className="job-card"  >
+                        <div className="job-card" onClick={handleView}  >
 
                             <div className='title'>
                                 <h5><strong><div>{studentJobs.JobTitle}</div></strong></h5>
                                 <p><strong><img src={location} alt="" /></strong> :{studentJobs.location}</p>
                                 <p><strong> <img src={student} alt="" /></strong> : 2 </p>
-
-
-                                {/* 
-            <div className='Active'>
-            <p>{studentJobs.status === 1 ? (
-              <button style={{backgroundColor:'green'}} type="button">Active</button>
-            ):(
-              <button style={{backgroundColor:"red"}} type="button">Inactive</button>
-            )}</p>
-
-              
-            </div> */}
 
                             </div>
 
@@ -42,8 +39,9 @@ function StudentJobCard({ studentJobs }) {
                             </div>
 
                             <div className='userdetails'>
-                            <p><strong>company name :</strong> Atto communication </p>
-                            <p><strong>employmentType :</strong> {studentJobs.employmentType} </p>
+                                
+                                <p><strong>company name :</strong> {studentJobs.CreatedBy?.CompanyName} </p>
+                                <p><strong>employmentType :</strong> {studentJobs.employmentType} </p>
 
                             {/* <p><strong>companydetails :</strong> {studentJobs.CreatedBy}</p> */}
 

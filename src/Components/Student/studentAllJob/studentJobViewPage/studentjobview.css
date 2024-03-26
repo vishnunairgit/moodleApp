@@ -1,0 +1,101 @@
+.jobView-student{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+.jobView-student .job-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 10px 10px 5px rgb(62, 87, 95);
+    transition: transform 0.3s ease;
+    width: 70%;
+    
+}
+
+.jobView-student .job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 9px 12px rgba(12, 2, 41, 0.1);
+}
+.jobView-student button{
+    border-radius: 5px;
+    min-width: 90px;
+}
+
+
+.jobView-student .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 0;
+    font-size: 1.8rem;
+    background-color: #cfccd6; 
+    padding: 10px;
+}
+
+.Job-firstbox{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+
+.jobView-student .Location, .Qualifications
+{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.jobView-student p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.jobView-student strong {
+    color: #222;
+}
+
+.jobView-student .details {
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+.jobView-student .Requirements
+{
+    text-align: left;
+    margin-left: 20px;
+}
+
+
+.jobView-student .jobRow {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+    text-align: left;
+    margin-left: 20px;
+
+}
+
+.jobView-student .jobLabel {
+	flex-basis: 190px;
+}
+
+.jobView-student .jobView .Applicants
+{
+    cursor: pointer;
+
+}
+.jobView-student .Applicants .jobLabel:hover{
+    background-color: rgb(181, 181, 241);
+}
+.jobView .date, .bottum_button
+{
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+}
+

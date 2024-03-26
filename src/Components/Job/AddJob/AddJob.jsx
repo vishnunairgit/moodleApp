@@ -82,7 +82,7 @@ const handleReset = () => {
 
 
 
-    return (//////////
+    return (
         <div>
             <div className="addjob">
                 <h2> POST JOB </h2>

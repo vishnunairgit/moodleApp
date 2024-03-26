@@ -3,6 +3,8 @@ import './companydetails.css'
 import AxiosInstance from '../../../config/AxiosInstance'
 import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom';
+import { formatDate, formatDateForInput } from '../../../helpers/helpers';
+import { BASE_URL } from '../../../constants/BaseUrl';
 
 
 
@@ -39,19 +41,17 @@ function CompanyView() {
   
     // ------------edit company----------------------
   
-    // const id = companyDetails._id
 
-
-    console.log(companyDetails, '------------------companyDetails--------------');
 
     
     const handleedit = () => {
       if (companyDetails._id) {
         navigate(`/editCompany/${companyDetails._id}`)
       } else {
-        console.error("No company ID available for editing");
+        // console.error("No company ID available for editing");
       }
     }
+    console.log(handleedit,'---------------handleedit-----------');
 
     const handleCancel = () =>{
       navigate(-1);
@@ -130,7 +130,7 @@ function CompanyView() {
                       type="number"
                       id="phonenumber"
                       name="phonenumber"
-                      placeholder="email.."
+                      placeholder="number.."
                       value={companyDetails?.phonenumber}
   
                     />
@@ -212,17 +212,16 @@ function CompanyView() {
   
                 <div className="row">
                   <div className="col-25">
-                    <label htmlFor="Founded">INCORPORATION DATE</label>
+                    <label htmlFor="Incorporationdate">INCORPORATION DATE</label>
                   </div>
                   <div className="col-75">
                     <input
+                      value={formatDateForInput(companyDetails?.Incorporationdate)}
                       type="date"
                       id="Incorporationdate"
                       name="Incorporationdate"
-                      placeholder="ncorporation date.."
-                      value={companyDetails?.Incorporationdate}
+                      placeholder="DD MMM YYYY"   
 
-                   
                     />
                   </div>
                 </div>
@@ -258,10 +257,25 @@ function CompanyView() {
               </div>
   
             </div>
+
+
+            <div className='files'>
+              <div>
+                <h3>logo</h3>
+                <img  className='logo' src={`${BASE_URL}/UserFiles/${companyDetails?.logoUpload}`} alt="" />
+              </div>
+              
+
+              <div>
+                <h3>image</h3>
+                <img  className='image' src={`${BASE_URL}/UserFiles/${companyDetails?.imageUpload}`} alt="" />
+              </div>
+
+
+            </div>
   
             {/* {error && <ErrorMessage message={error} />} */}
             <div className="buttonHolder">
-              {/* <span><h3></h3></span> */}
               <button
                 className="button_02"
                 type="submit"
@@ -270,13 +284,7 @@ function CompanyView() {
               >
                 Edit
               </button>
-              {/* <button
-                className="btn"
-                // onClick={handleReset}
-                style={{ backgroundColor: "rgb(0, 150, 0)", color: "white" }}
-              >
-                Reset
-              </button> */}
+              
               <button
                 className="button_03"
                 onClick={handleCancel}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import AxiosInstance from '../../../config/AxiosInstance'
 import { useNavigate, useParams } from 'react-router-dom'
+import { formatDate, formatDateForInput } from '../../../helpers/helpers';
 
 
 function EditCompany() {
@@ -8,7 +9,6 @@ function EditCompany() {
 
   const navigate = useNavigate()
 
-  // const [companyDetails, setcompanyDetails] = useState([])
   const [editcompanyData, seteditcompanydata] = useState({
     CompanyName: '',
     registrationNumber: '',
@@ -21,7 +21,7 @@ function EditCompany() {
     Incorporationdate: '',
     about: '',
     password: '',
-    confirmPassword: "",
+    confirmPassword: '',
 
   })
 
@@ -29,6 +29,7 @@ function EditCompany() {
     logoUpload: null,
     imageUpload: null
   });
+
 
   useEffect(() => {
     GetUserData()
@@ -49,71 +50,95 @@ function EditCompany() {
   };
 
 
-  const editdata = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
     seteditcompanydata({ ...editcompanyData, [name]: value })
 
   }
 
-
   const Editcompanyfile = (e) => {
     const file = e.target.files[0];
     const fieldName = e.target.name;
-
+    // console.log('Before update:', EditcompanyFiles);
     setEditcompanyFiles({ ...EditcompanyFiles, [fieldName]: file });
+    
   }
 
-  const handleeditSubmit = async () => {
-    let fileData = new FormData();
 
-    // Append all your form data
-    fileData.append('CompanyName', editcompanyData.CompanyName);
-    fileData.append('registrationNumber', editcompanyData.registrationNumber);
-    fileData.append('email', editcompanyData.email);
-    fileData.append('phonenumber', editcompanyData.phonenumber);
-    fileData.append('Address', editcompanyData.Address);
-    fileData.append('website', editcompanyData.website);
-    fileData.append('LinkedIn', editcompanyData.LinkedIn); // Verify field name correctness
-    fileData.append('Industry', editcompanyData.Industry);
-    fileData.append('Incorporationdate', editcompanyData.Incorporationdate);
-    fileData.append('about', editcompanyData.about);
-    fileData.append('password', editcompanyData.password); // Ensure secure handling
-    fileData.append('confirmPassword', editcompanyData.confirmPassword); // Ensure validation before submission
-    if (EditcompanyFiles.logoUpload) {
-        fileData.append('logoUpload', EditcompanyFiles.logoUpload);
-    }
-    if (EditcompanyFiles.imageUpload) {
-        fileData.append('imageUpload', EditcompanyFiles.imageUpload);
-    }
+//   const handleeditSubmit = async () => {
+//     let fileData = new FormData();
+//     // fileData.append('CompanyName', editcompanyData.CompanyName);
+//     // fileData.append('registrationNumber', editcompanyData.registrationNumber);
+//     // fileData.append('email', editcompanyData.email);
+//     // fileData.append('phonenumber', editcompanyData.phonenumber);
+//     // fileData.append('Address', editcompanyData.Address);
+//     // fileData.append('website', editcompanyData.website);
+//     // fileData.append('LinkedIn', editcompanyData.LinkedIn); // Verify field name correctness
+//     // fileData.append('Industry', editcompanyData.Industry);
+//     // fileData.append('Incorporationdate', editcompanyData.Incorporationdate);
+//     // fileData.append('about', editcompanyData.about);
+//     // fileData.append('password', editcompanyData.password); // Ensure secure handling
+//     // fileData.append('confirmPassword', editcompanyData.confirmPassword); // Ensure validation before submission
+//     if (EditcompanyFiles.logoUpload) {
+//         fileData.append('logoUpload', EditcompanyFiles.logoUpload);
+//     }
+//     if (EditcompanyFiles.imageUpload) {
+//         fileData.append('imageUpload', EditcompanyFiles.imageUpload);
+//     }
 
-    try {
-        const response = await AxiosInstance.post(`/admin/EditCompany/${id}`, fileData);
-        console.log(response.data);
-    } catch (error) {
-        console.error('Error submitting form:', error);
-    }
-}
+//     try {
+//       debugger
+//         const response = await AxiosInstance.post('/admin/EditCompany', fileData, {
+//         params: editcompanyData,
+//         headers: { "content-type": "multipart/form-data" },
+//         });
+//         debugger
+//         console.log(response.data);
+//     } catch (error) {
+//         console.error('Error submitting form:', error);
+//     }
+// }
+const handleeditSubmit = async () => {
+  let fileData = new FormData();
+  
+  // Assuming editcompanyData is an object with form data
+  Object.keys(editcompanyData).forEach(key => {
+      fileData.append(key, editcompanyData[key]);
+  });
+  
+  // Append file data if available
+  if (EditcompanyFiles.logoUpload) {
+      fileData.append('logo', EditcompanyFiles.logoUpload);
+  }
+  if (EditcompanyFiles.imageUpload) {
+      fileData.append('image', EditcompanyFiles.imageUpload);
+  }
 
-
+  try {
+    debugger
+      const response = await AxiosInstance.post('/admin/EditCompany', fileData, {
+        params:{id},
+        // headers: { "content-type": "multipart/form-data" },
+      });
+      alert('company details added successfully')
+      navigate('/companyDetails')
+      // debugger
+      console.log(response.data);
+  } catch (error) {
+      console.error('Error submitting form:', error);
+  }
+};
 
   const handleCancel = () => {
     navigate(-1)
   }
-
-
-
-
-
 
   return (
     <>
       <div>
         <div className="Account">
           <h2> COMPANY DETAILS </h2>
-          {/* <form
-           onSubmit={handleeditSubmit}
-          > */}
+          
           <div className="container">
             <div className="leftSide-container">
 
@@ -132,9 +157,10 @@ function EditCompany() {
                     name="CompanyName"
                     placeholder="Company Name.."
                     value={editcompanyData?.CompanyName}
-                    required
-                    onChange={editdata}
-                  />
+                    onChange={handleInputChange} 
+                    
+                                       
+                    />
                   <span> </span>
                 </div>
               </div>
@@ -152,12 +178,13 @@ function EditCompany() {
                     name="registrationNumber"
                     placeholder="RegistrationNumber.."
                     value={editcompanyData?.registrationNumber}
-                    required
-                    onChange={editdata}
+                    onChange={handleInputChange} 
+                    
 
                   />
                 </div>
               </div>
+
               <div className="row">
                 <div className="col-25">
                   <label htmlFor="email">EMAIL</label>
@@ -169,7 +196,8 @@ function EditCompany() {
                     name="email"
                     placeholder="email.."
                     value={editcompanyData?.email}
-                    onChange={editdata}
+                    onChange={handleInputChange} 
+                    
 
                   />
                 </div>
@@ -186,8 +214,7 @@ function EditCompany() {
                     name="phonenumber"
                     placeholder="email.."
                     value={editcompanyData?.phonenumber}
-                    onChange={editdata}
-
+                    onChange={handleInputChange} 
                   />
                 </div>
               </div>
@@ -205,13 +232,11 @@ function EditCompany() {
                     name="Address"
                     placeholder="Address.."
                     value={editcompanyData?.Address}
-                    onChange={editdata}
-
+                    onChange={handleInputChange} 
 
                   />
                 </div>
               </div>
-
 
               <div className="row">
                 <div className="col-25">
@@ -226,35 +251,36 @@ function EditCompany() {
                     name="website"
                     placeholder="website.."
                     value={editcompanyData?.website}
-                    onChange={editdata}
-
-                    required
+                    onChange={handleInputChange} 
+                    
                   />
                 </div>
               </div>
 
               <div className="row">
                 <div className="col-25">
-                  <label htmlFor="LinkedIn ">
-                    LINKEDLN ID  <span className="mandatory-indicator">*</span>
+                  <label htmlFor="LinkedIn">
+                  LinkedIn ID<span className="mandatory-indicator">*</span>
                   </label>
                 </div>
                 <div className="col-75">
                   <input
                     type="text"
-                    id="LinkedIn "
-                    name="LinkedIn "
-                    placeholder="LinkedIn .."
+                    id="LinkedIn"
+                    name="LinkedIn"
+                    placeholder="LinkedIn.."
                     value={editcompanyData?.LinkedIn}
-                    onChange={editdata}
-                    required
+                    onChange={handleInputChange} 
+                    
                   />
                 </div>
               </div>
 
               <div className="row">
                 <div className="col-25">
-                  <label htmlFor="Industry">TYPE INDUSTRY</label>
+                  <label htmlFor="Industry">
+                  Industry <span className="mandatory-indicator">*</span>
+                  </label>
                 </div>
                 <div className="col-75">
                   <input
@@ -263,12 +289,12 @@ function EditCompany() {
                     name="Industry"
                     placeholder="Industry.."
                     value={editcompanyData?.Industry}
-                    onChange={editdata}
-
+                    onChange={handleInputChange} 
+                    
                   />
                 </div>
               </div>
-
+        
               <div className="row">
                 <div className="col-25">
                   <label htmlFor="Founded">INCORPORATION DATE</label>
@@ -278,15 +304,12 @@ function EditCompany() {
                     type="date"
                     id="Incorporationdate"
                     name="Incorporationdate"
-                    placeholder="Incorporationdate.."
-                    value={editcompanyData?.Incorporationdate}
-                    onChange={editdata}
-
+                    placeholder="DD MMM YYYY"  
+                    value={formatDateForInput(editcompanyData?.Incorporationdate)}
+                    onChange={handleInputChange} 
                   />
                 </div>
               </div>
-
-
               <div className="row">
                 <div className="col-25">
                   <label htmlFor="about">ABOUT</label>
@@ -298,12 +321,10 @@ function EditCompany() {
                     name="about"
                     placeholder="about the comapny..."
                     value={editcompanyData?.about}
-                    onChange={editdata}
-
+                    onChange={handleInputChange} 
                   />
                 </div>
               </div>
-
 
             </div>
 
@@ -314,6 +335,7 @@ function EditCompany() {
                 <div className="text">
                   <h5>UPLOAD Logo</h5>
                 </div>
+                
                 <div className="fileupload">
                   <label htmlFor="logoUpload">SELECT AN IMAGES</label>
                   <input
@@ -371,7 +393,6 @@ function EditCompany() {
 
           {/* {error && <ErrorMessage message={error} />} */}
           <div className="buttonHolder">
-            {/* <span><h3></h3></span> */}
             <button
               className="button_01"
               type="submit"
@@ -381,14 +402,6 @@ function EditCompany() {
               submit
             </button>
 
-            {/* <button
-                className="button-17"
-                // onClick={handleReset}
-                style={{ backgroundColor: "rgb(0, 150, 0)", color: "white" }}
-              >
-                Reset
-              </button> */}
-
             <button
               className="button_03"
               onClick={handleCancel}
@@ -397,7 +410,6 @@ function EditCompany() {
               Cancel
             </button>
           </div>
-          {/* </form> */}
         </div>
 
 

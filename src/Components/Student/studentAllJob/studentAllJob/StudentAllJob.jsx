@@ -12,12 +12,12 @@ function StudentAllJob() {
 
 
     useEffect(() => {
-        getAllStudentJob();
+        getAllJob();
     }, []);
 
-    const getAllStudentJob = async () => {
+    const getAllJob = async () => {
         try {
-            const response = await AxiosInstance.get('users/getAllStudentJob');
+            const response = await AxiosInstance.get('users/getAllJob');
             setstudentAllJob(response.data);
             console.log(response.data,'---------response.dataresponse.data--------');
         } catch (error) {
@@ -28,9 +28,7 @@ function StudentAllJob() {
     const handleFilterChange = (newFilters) => {
         setFilters(newFilters);
     };
-    // console.log(studentAllJob, '--------studentAllJob before filtering---------');
-    // const filteredJobs = studentAllJob.filter(job => !filter || job.employmentType === filter);
-    // console.log(filteredJobs, '--------filteredJobs---------filteredJobs-----------');
+
 
     const filteredJobs = studentAllJob.filter(job => {
         return (

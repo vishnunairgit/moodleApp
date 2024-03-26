@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import AxiosInstance from '../../../config/AxiosInstance';
 import { useNavigate, useParams } from 'react-router-dom';
-import { formatDate } from '../../../helpers/helpers';
+import { formatDate, formatDateForInput } from '../../../helpers/helpers';
 
 function Editjob() {
     const  navigate =useNavigate()
@@ -233,7 +233,7 @@ function Editjob() {
                                     </div>
                                     <div className="col-75">
                                         <input
-                                            value={formatDate(Jobeditdata?.date)}
+                                            value={formatDateForInput(Jobeditdata?.date)}
                                             type="date"
                                             id="date"
                                             name="date"
@@ -287,23 +287,7 @@ function Editjob() {
                                     </div>
                                 </div>
 
-                                {/* <div className="row">
-                                <div className="col-25">
-                                    <label htmlFor="Jobdescription">JOB DESCRIOTION</label>
-                                </div>
-                                <div className="col-75">
-                                    <textarea
-                                    type="text"
-                                        value={addJobs.Jobdescription}
-                                        id="Jobdescription"
-                                        name="Jobdescription"
-                                        placeholder="Enter Jobdescription, each point on a new line..."
-                                        onChange={HandleAddJOb}
-                                        required
-                                    />
-                                </div>
-                            </div> */}
-
+        
 
 
                             </div>

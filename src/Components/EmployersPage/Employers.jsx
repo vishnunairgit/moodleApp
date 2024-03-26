@@ -1,71 +1,86 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import companyIMG from "../Assets/AFP_9DD4KZ_1629870213363_1632742003316.jpg"
 import "./employers.css"
 import companyLogo from '../Assets/logo (1).png'
 import locationLogo from '../Assets/icons8-location-24.png'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import linkedin from '../Assets/icons8-linked-in-35.png'
 import website from '../Assets/icons8-website-35.png'
 import appdevimg from '../Assets/App-Development-1.png'
 import iotImg from '../Assets/What-is-an-IoT-Gateway-1.jpg'
 import networkingimg from '../Assets/images.jpg'
 import facebook from '../Assets/icons8-facebook-35.png'
+import AxiosInstance from '../../config/AxiosInstance'
+import { BASE_URL } from '../../constants/BaseUrl'
 
 
 
 function Employers() {
 
+
+  const userId = JSON.parse(localStorage.getItem("user")).userId
+
+
   const navigate = useNavigate()
 
-  const companyUrl = 'https://www.attocom.com/'
-  const linkedinid = 'https://www.linkedin.com/ '
-  const facebookURl = 'https://www.facebook.com/login'
+  const [userdetails, setuserdetails] = useState({})
+
+  // const companyUrl = 'https://www.attocom.com/'
+  // const linkedinid = 'https://www.linkedin.com/ '
+  // const facebookURl = 'https://www.facebook.com/login'
 
   // --------------------------website--------------------------
+  // const handlewebsite = () => {
+  //   window.open(companyUrl, '_blank');
+  // }
+
   const handlewebsite = () => {
-    window.open(companyUrl, '_blank');
+    window.open(userdetails?.website, '_blank');
   }
   // --------------------------linkedin--------------------------
   const handlelinkedin = () => {
-    window.open(linkedinid, '_blank')
+    window.open(userdetails?.LinkedIn, '_blank')
   }
 
-  const handlelfacebook = ()=>{
-    window.open(facebookURl, '_blank')
+  // const handlelfacebook = ()=>{
+  //   window.open(facebookURl, '_blank')
+  // }
+
+  useEffect(() => {
+    GetUserData()
+  }, [])
+
+
+  const GetUserData = async () => {
+    try {
+      const response = await AxiosInstance.get('/admin/GetUser', { params: { userId } })
+      debugger
+      setuserdetails(response.data)
+    } catch (error) {
+      console.log(error, '-----------error-----------');
+      console.error('Error fetching data:', error)
+
+    }
   }
+
+
+
 
   return (
     <>
       <div className='employersPage '>
 
         <div className='mainImg'>
-          <img src={companyIMG} alt="" />
+          <img src={`${BASE_URL}/userFiles/${userdetails.imageUpload} `} alt="" />
         </div>
 
         <div className='aboutus'>
 
           <h3>ABOUT US</h3>
           <div>
-            <p>Attocom is a professionally managed software solutions and services company.
-              Headquartered in Bangalore, India and founded by team of seasoned experts who
-              have seen the Telecom industry evolve from the first to the
-              fourth generation systems.</p>
+            <p>
+              {userdetails?.about}</p>
           </div>
-
-          <div>
-            <p>Attocom is a consulting and technology services company serving global clients.
-              By combining unparalleled experience, comprehensive capabilities across all industries & business functions,
-              Attocom collaborates with clients to help them transform into high-performance businesses.</p>
-          </div>
-
-          <div>
-            <p>Attocom Management team consists of highly qualified and motivated professionals with
-              significant experience in systems development in India as well as abroad. We work with
-              leading Networking and Telecom product, services, and service provider companies.
-              We have sound expertise in a broad spectrum of domains such as Telecom,
-              Datacom, Wireless, Embedded Systems and Next Generation Management Systems.</p>
-          </div>
-
 
         </div>
 
@@ -122,39 +137,39 @@ function Employers() {
 
         <div className='bottomNav'>
 
-       
-        
+
+
           <div className='bottomNav-2'>
 
             <div className='first'>
 
               <div className='companydetails'>
-                 <img src={companyLogo} alt="" />
-                 <h5><strong>Atto Communication Pvt.Ltd </strong></h5>
+                <img src={`${BASE_URL}/userFiles/${userdetails.logoUpload} `} alt="" />
+                <h5><strong>{userdetails?.CompanyName} </strong></h5>
               </div>
-              
-              <p>Atto Communication is striving for a safer and connected world with its 
-                leading-edge solutions. Committed to innovation for more 
-                than 20 years, the independent technology group acts long-term 
-                and sustainably, making it a reliable partner to its industry and
-                 government customers worldwide...</p>
+
+              <p> {userdetails && userdetails.about
+                ? userdetails.about.length > 300
+                  ? `${userdetails.about.slice(0, 300)}...`
+                  : userdetails.about
+                : "Loading or no about text available"}
+              </p>
 
             </div>
 
             <div className='Second'>
 
               <h5><strong>Address</strong> </h5>
-                <div>Atto Communication Pvt.Ltd</div>
-                47/10, 4th Floor,Krishna Mansion, 
-                9th Cross, JP Nagar 1st Phase, 
-                Bengaluru, Karnataka 560078
+              <div>{userdetails?.CompanyName}</div>
+              <p>{userdetails.Address}</p>
+
             </div>
 
             <div className='Third'>
-              <h5><strong>Contact</strong></h5> 
+              <h5><strong>Contact</strong></h5>
               <div>
-                <div>9867896754</div>
-                <div>attocom@gmail.com</div>
+                <div>{userdetails?.phonenumber}</div>
+                <div>{userdetails?.email}</div>
 
               </div>
             </div>
@@ -162,13 +177,13 @@ function Employers() {
           </div>
 
           <div className='bottomNav-1'>
-              <img src={linkedin} alt="" title='linkedin' onClick={handlelinkedin} />
-              <img src={website} alt="" title='website' onClick={handlewebsite} />
-              <img src={facebook}  title='facebook' onClick={handlelfacebook} alt="" />
+            <img src={linkedin} alt="" title='linkedin' onClick={handlelinkedin} />
+            <img src={website} alt="" title='website' onClick={handlewebsite} />
+            {/* <img src={facebook}  title='facebook' onClick={handlelfacebook} alt="" /> */}
 
           </div>
 
-        
+
 
         </div>
 

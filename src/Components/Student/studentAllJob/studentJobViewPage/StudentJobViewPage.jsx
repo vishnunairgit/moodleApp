@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { calculateTimeAgo, formatDate } from '../../../../helpers/helpers';
 import './studentjobview.css'
 import { BASE_URL } from '../../../../constants/BaseUrl';
+import location from '../../Assets/icons8-location-24.png'
 
 
 
@@ -58,9 +59,22 @@ function StudentJobViewPage() {
         <div className="job-card" >
 
           <div className='title'>
+
             <div className='job-title'>
-              <div>{singleJob.JobTitle}</div>
+
+              <div>
+                <div>{singleJob.JobTitle}</div>
+                <p className="jobLabel">{singleJob.CreatedBy?.CompanyName} </p>
+              </div>
+
+              <div>
+              <img className='logo-1' src={`${BASE_URL}/UserFiles/${singleJob.CreatedBy?.logoUpload}`} alt="" />
+
+              </div>
+                
             </div>
+          
+            
           </div>
 
 
@@ -101,16 +115,16 @@ function StudentJobViewPage() {
 
             <div className='firstbox-rightside'>
 
-                <div className="jobRow">
+                {/* <div className="jobRow">
                     <div className="jobLabel">
                         <strong>Company Name</strong>
                     </div>
                     <div className="jobLabel">: {singleJob.CreatedBy?.CompanyName} </div>
-                </div>
+                </div> */}
 
                 <div className="jobRow">
                     <div className="jobLabel">
-                        <strong>location</strong>
+                        <img src={location} alt="" />
                     </div>
                     <div className="jobLabel">: {singleJob.CreatedBy?.Address} </div>
                 </div>
@@ -183,7 +197,7 @@ function StudentJobViewPage() {
 
           <div className='bottum_button'>
           <button className='button_01' type="button" onClick={handleback}>Back</button>
-          <button className='button_02' type="button" onClick={handleapplyJob}>apply Now</button>
+          <button className='button_02' type="button" onClick={handleapplyJob}>Apply Now</button>
 
           </div>
 

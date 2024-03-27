@@ -13,7 +13,7 @@ function Alljob() {
 
   const getallJOB = async (userId) => {
     try {
-      const responce = await AxiosInstance.get('users/getallJob', { params: { userId: userId } })
+      const responce = await AxiosInstance.get('admin/getallJob', { params: { userId: userId } })
       debugger
       setalljob(responce.data)
 
